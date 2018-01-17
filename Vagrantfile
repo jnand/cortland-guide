@@ -18,13 +18,13 @@ Vagrant.configure("2") do |config|
     # Run Docsify dev server
     # example: vagrant provision --provision-with server.
     config.vm.provision "server",
-        type: "shell",
-        privileged: false,
-        run: "never",
-        inline: <<-SHELL
-            echo "===================================================="
-            echo " Starting docsify server"
-            cd /vagrant
-            docsify serve . &> ~/docsify.log &
-        SHELL
+    type: "shell",
+    privileged: false,
+    run: "never",
+    inline: <<-SHELL
+        echo "===================================================="
+        echo " Starting docsify server"
+        cd /vagrant
+        docsify serve . &> ~/docsify.log &
+    SHELL
 end
