@@ -24,7 +24,7 @@ Assumptions
 1. You're setting up a new Apple device; as this guide was developed for a Macbookpro.
 2. You have backups of critical data.
 3. You accept the **'as is'** nature of this document.
-4. **You** accept all responsibility in the case you brick your device.
+4. **You** accept all responsibility in case you brick your device.
 
 
 [Next](pages/install.md)
