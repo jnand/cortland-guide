@@ -1,2 +1,3 @@
 - [Cortland](/)
+- [Install macOS](pages/install.md)
 - [References](pages/references.md)
