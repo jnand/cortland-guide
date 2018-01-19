@@ -27,5 +27,5 @@ Assumptions
 4. **You** accept all responsibility in case you brick your device.
 
 
-[Next](pages/prepare.md)
+[Next](pages/model.md)
 
