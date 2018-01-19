@@ -30,12 +30,11 @@ Before installing a new operating system ensure the distribution is authentic.
 * Check signatures
 * Verify hashes 
 
-Double check Apple's Root CAs. They're available on their website at:
-
+?> Double check Apple's Root CAs. They're available on their website at:  
 <https://www.apple.com/certificateauthority/>
 
 
-At the time of this writing Apple's Root CA fingerprints are:
+**At the time of this writing Apple's Root CA fingerprints are:**
 
 SHA1 Fingerprint:
 
