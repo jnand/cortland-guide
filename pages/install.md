@@ -45,7 +45,7 @@ requirements) connect to a secure local/dummy wifi SSID.
 
 When prompted to create your account, use your **Level I** password, without a hint.
 
-* uncheck, "Allow my Apple ID to reset this password"
+!> Uncheck, "Allow my Apple ID to reset this password"
 
 ![User account](images/create-new-account.png)
 
