@@ -236,4 +236,4 @@ available storage.
 ```
 
 
-[Next](pages/install.md)
+[Next](pages/install.md?id=installing-macos)
