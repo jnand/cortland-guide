@@ -6,3 +6,5 @@ References
 3. US NIST applesec. [gihub](https://github.com/usnistgov/applesec)
 4. NSA, hardening macOS. [source (removed)](http://www.nsa.gov/ia/_files/factsheets/macosx_10_6_hardeningtips.pdf)
 5. How to create a bootable installer for macOS. [source](https://support.apple.com/en-us/HT201372)
+6. How to reinstall macOS. [source](https://support.apple.com/en-us/HT204904)
+7. KRACK attack. [source](https://thehackernews.com/2017/10/wpa2-krack-wifi-hacking.html)
