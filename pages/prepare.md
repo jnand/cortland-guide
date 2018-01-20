@@ -2,6 +2,34 @@ Preparing Installation
 =======================
 
 
+Password policy
+----------------
+
+![password](images/password-strength.png)
+
+Before setting up a new system we need to decide on a passphrase. We'll use a three level strategy, where each level builds on the last. These three passphrases will only be used for accessing physical devices, **never** for any cloud services or "online" authentication; those will use unique high entropy codes generated and stored by the [keepass](https://keepass.info/) keychain.
+
+*example:*
+
+?>**Level I:**       "horse battery"  
+  **Level II:**      "horse battery staple"  
+  **Level III:**     "correct horse battery staple"  
+  **Static Token:**  "Cx97pQcbmueZDTxeYGL"  
+
+
+Level I, will be used for user signin *i.e.* laptop account  
+Level II, is used for our keychain master password *i.e.* keepass  
+Level III, is used when encrypting entire disks *i.e.* Filevault  
+Static Token, is programmed into the yubikey and used as a [pepper](https://en.wikipedia.org/wiki/Pepper_(cryptography)) when needed  
+
+These passphrases won't be used as is, but instead will be paired with a salt and/or pepper as needed. For example, the Level I passphrase will be hashed through a [Yubikey](https://www.yubico.com/) HMAC, without the paired Yubikey the naked passphrase is useless. A Level II login will be hashed with the Yubikey HMAC [pepper](https://goo.gl/ybPwmF) and [salted](https://goo.gl/rthrnQ) with a key file when authenticating our Keepass keychain. And finally any whole disk encryption passphrashes will use the Level III phrase in addition to a user supplied pepper and Yubikey token. 
+
+> **Scenario:** *Login to a powered off laptop*  
+FileVaule prompts for disk password. User plugs in yubikey, presses button, yubikey fills static token into field, user enters Level III phrase into same field after yubikey token. Press return, and FileVault successfully authenticates. *Note:* this workflow is necessary since FileVault prompts for a passcode before loading the OS' Yubikey [PAM](https://en.wikipedia.org/wiki/Pluggable_authentication_module) drivers.
+
+This strategy will become more clear throughout the guide and during yubikey integration.
+
+
 Get the installer
 -----------------
 
