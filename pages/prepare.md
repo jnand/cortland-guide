@@ -1,5 +1,5 @@
-Preparing Installation
-=======================
+Preparing to install
+=====================
 
 
 Password policy
@@ -264,4 +264,4 @@ available storage.
 ```
 
 
-[Next](pages/install.md?id=installing-macos)
+[Next](pages/install.md)

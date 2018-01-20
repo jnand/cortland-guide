@@ -1,6 +1,7 @@
-Defining a threat model
-=======================
+Threat model
+==============
 
+**Defining a thread model**
 
 We want to mitigate risks in day-to-day consulting work; possibly including some 
 that are adversarial in nature. The level of sensitivity of client information may range from derisked trust positions (*i.e.* confidential IP, HIPAA, etc.), to low-level SAPs.
@@ -149,4 +150,4 @@ Fully derisking this model involves:
     8.4. Key recovery protocol  
 
 
-[Next](pages/prepare.md?id=preparing-installation)
+[Next](pages/prepare.md)

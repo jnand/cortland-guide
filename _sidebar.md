@@ -1,5 +1,5 @@
 - [Cortland](/)
 - [Threat model](pages/model.md)
-- [Prepare installer](pages/prepare.md)
-- [Install macOS](pages/install.md)
+- [Preparing to install](pages/prepare.md)
+- [Installing macOS](pages/install.md)
 - [References](pages/references.md)
