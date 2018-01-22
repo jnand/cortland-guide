@@ -49,3 +49,23 @@ Further EFI checks can be conducted using the [`efivalidate`](https://github.com
 
 ### Firmware password ###
 
+> Setting a firmware password prevents your Mac from starting up from any device other than your startup disk. It may also be set to be required on each boot.
+
+> This feature [can be helpful if your laptop is lost or stolen](https://www.ftc.gov/news-events/blogs/techftc/2015/08/virtues-strong-enduser-device-controls), protects against Direct Memory Access (DMA) attacks which can read your FileVault passwords and inject kernel modules such as [pcileech](https://github.com/ufrisk/pcileech), as the only way to reset the firmware password is through an Apple Store, or by using an [SPI programmer](https://reverse.put.as/2016/06/25/apple-efi-firmware-passwords-and-the-scbo-myth/), such as [Bus Pirate](http://ho.ax/posts/2012/06/unbricking-a-macbook/) or other flash IC programmer.
+
+Check firmware password
+
+`❯ sudo firmwarepasswd -check`
+
+```stdout
+Password Enabled: Yes
+```
+
+Set firmware password
+
+`❯ sudo firmwarepasswd -setpasswd -setmode command`
+
+```stdout
+Setting Firmware Password
+Enter password:
+```
