@@ -67,6 +67,9 @@ malware payloads.
 
 ### Attack vectors ###
 
+> A skilled attacker with unsupervised physical access to your computer can infect the boot ROM to install a keylogger and steal your password - see [Thunderstrike](https://trmm.net/Thunderstrike), for example.
+
+
 *Authentication.* Over-the-shoulder skimming, weak passwords, password reuse, key 
 theft, single-user-mode side channel attacks. 
 
