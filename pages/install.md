@@ -258,5 +258,55 @@ Install all available updates
 `❯ sudo softwareupdate --install --all --verbose`
 
 
+### Homebrew ###
+
+Homebrew is package manager for macOS that makes it easier to install and update common software distributions.
+
+Install homebrew, this will also install `xcode-select` command line tools
+
+`❯ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
+
+> Remember to periodically run brew update and brew upgrade on trusted and secure networks to download and install software updates. To get information on a package before installation, run brew info <package> and check its recipe online.
+
+
+### Mas ###
+
+With `mas` keeping track of software updates from the app store should be as easy as running `mas outdated`
+
+> `mas` is a simple command line interface for the Mac App Store. Designed for scripting and automation.
+
+Install mas via homebrew
+
+`❯ brew install mas`
+
+Check for outdated apps
+
+`❯ mas outdated`
+
+```stdout
+497799835 Xcode (7.0)
+446107677 Screens VNC - Access Your Computer From Anywhere (3.6.7)
+```
+
+### Package inventory ###
+
+Keeping track of all installed packages is much easier with [`brew bundle`](https://github.com/Homebrew/homebrew-bundle). The automatically generated manifest can also be used to bootstrap new installations with all your needed software.
+
+`❯ brew bundle dump`
+
+```stdout
+cask_args appdir: "/Applications"
+tap "caskroom/cask"
+tap "telemachus/brew", "https://telemachus@bitbucket.org/telemachus/brew.git"
+brew "imagemagick"
+brew "mysql@5.6", restart_service: true, link: true, conflicts_with: ["mysql"]
+brew "emacs", args: ["with-cocoa", "with-gnutls"]
+cask "google-chrome"
+cask "java" unless system "/usr/libexec/java_home --failfast"
+cask "firefox", args: { appdir: "~/my-apps/Applications" }
+mas "1Password", id: 443987910
+```
+
+
 [Next](pages/hardware.md)
 
