@@ -59,6 +59,31 @@ When prompted to create your account, use your **Level I** password, without a h
 Finish Apple's guided setup.
 
 
+First boot
+----------
+
+On first boot, confirm the Apple installer has finished, then restart to [clear the NVRAM](https://support.apple.com/en-us/HT204063).
+
+1. Restart
+2. On boot press and hold `⌥ Option` + `⌘ Command` + `P` + `R`, for ~20 seconds
+3. After booting set your machine name as desired
+
+    `❯ sudo scutil --set ComputerName your_computer_name`  
+    `❯ sudo scutil --set LocalHostName your_hostname`  
+
+
+User accounts
+-------------
+
+You should have already created an `admin` user account during Apple's guided installation. Ideally, the admin account should be left to tasks that require privilege escalation; such as changing system configuration, installing software to `/Applications`, or managing users. Both [Apple](https://help.apple.com/machelp/mac/10.12/index.html#/mh11389) and [NIST CSRC](http://csrc.nist.gov/publications/drafts/800-179/sp800_179_draft.pdf) recommend using a standard account for day-to-day use. This suggestion is an attempt to mitigate the [many vectors opened up](https://bogner.sh/2014/03/another-mac-os-x-sudo-password-bypass/) by `sudo` group privileges.
+
+**Notice.** A `standard` account may cause problems for developers as they don't have access to `sudo`. Still, the use of a standard user account or sandbox VM/Container for non-admin work is recommended to keep application from gaining root access.
+
+For good measure create a standard user account for your day-to-day activities using the `Users & Groups` pane in `System Preferences`, clicking the `+` just below "Login Options".
+
+![new user](images/new-user.png)
+
+
 Firewall
 ---------
 
@@ -212,5 +237,26 @@ Try blocking Facebook:
     ```
 
 
+Software Updates
+-----------------
 
+After installing a verified copy of macOS and configuring the firewall, we should update the OS and system packages. Later we'll install `mas` and `homebrew` to assist with package management.
+
+
+### macOS ###
+
+List updates available via the Apple App Store
+
+`❯ softwareupdate --list`
+
+Install recommended updates only
+
+`❯ sudo softwareupdate --install --recommended --verbose`
+
+Install all available updates
+
+`❯ sudo softwareupdate --install --all --verbose`
+
+
+[Next](pages/hardware.md)
 
