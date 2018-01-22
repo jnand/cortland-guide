@@ -10,3 +10,4 @@ References
 7. KRACK attack. [source](https://thehackernews.com/2017/10/wpa2-krack-wifi-hacking.html)
 8. Install Mac OS X Software Updates [source](http://osxdaily.com/2011/01/13/install-mac-os-x-software-updates-terminal/)
 9. Clearing NVRAM. [source](https://support.apple.com/en-us/HT204063)
+10. Nail polish tamper proofing. [source](https://trmm.net/Glitter)

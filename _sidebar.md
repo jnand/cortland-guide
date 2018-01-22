@@ -2,4 +2,5 @@
 - [Threat model](pages/model.md)
 - [Preparing to install](pages/prepare.md)
 - [Installing macOS](pages/install.md)
+- [Hardware](pages/hardware.md)
 - [References](pages/references.md)
