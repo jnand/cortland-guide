@@ -56,6 +56,8 @@ When prompted to create your account, use your **Level I** password, without a h
 
 ![User account](images/create-new-account.png)
 
+!> Moreover, when prompted regarding FilVault recovery and/or login opt to create recovery keys instead of an iCloud reset, and **Do Not** allow any users to "unlock the disk". This will be important later on when we setup Yubikey MFA.
+
 Finish Apple's guided setup.
 
 
