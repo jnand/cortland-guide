@@ -27,7 +27,11 @@ These passphrases won't be used as is, but instead will be paired with a salt an
 > **Scenario:** *Login to a powered off laptop*  
 FileVaule prompts for disk password. User plugs in yubikey, presses button, yubikey fills static token into field, user enters Level III phrase into same field after yubikey token. Press return, and FileVault successfully authenticates. *Note:* this workflow is necessary since FileVault prompts for a passcode before loading the OS' Yubikey [PAM](https://en.wikipedia.org/wiki/Pluggable_authentication_module) drivers.
 
-This strategy will become more clear throughout the guide and during yubikey integration.
+
+?> The motivation behind this strategy is to use the **Level I** password where authentication is needed more frequently, *i.e.* macOS logon, sudo, etc., and **Level II** in combination with a keyfile and Yubikey challenge-response for our Keepass keychain. The **Level III** password is used in combination with a device specific pepper and Yubikey static token for whole volume encryption -- this last part is mostly a workaround for boot time volume decryption that can not load the yubikey drivers for HMAC challenge-response.
+
+
+The strategy should become more clear throughout the guide and during yubikey integration.
 
 
 Get the installer
