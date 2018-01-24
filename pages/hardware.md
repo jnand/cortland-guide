@@ -69,3 +69,51 @@ Set firmware password
 Setting Firmware Password
 Enter password:
 ```
+
+
+Standby, Sleep, & Hibernate
+---------------------------
+
+To take full advantage of FileVault, we'll need to configure the system power settings to evict our key on standby. Evicting the FileVault key ensures the drive is protected by its encryption scheme, if left unattended.
+
+### Energy settings ###
+
+?> The following configuration allows the system to sleep the display and drives after a specified idle time, prompting the user for a password or touchID on wake to re-enter the session. If the lid is closed the system will hibernate after 60 seconds, evicting the FV-key; when the user wakes the system they'll be prompted for the disk password, then greeted with the user login screen, which may or may not allow touchID depending on how much time has passed in hibernation.
+
+```bash
+❯ sudo pmset -a destroyfvkeyonstandby      1
+❯ sudo pmset -a standbydelay         0
+❯ sudo pmset -a standby              1
+❯ sudo pmset -a powernap             0
+❯ sudo pmset -a disksleep            10
+❯ sudo pmset -a sleep                0
+❯ sudo pmset -a autopoweroffdelay    0
+❯ sudo pmset -a hibernatemode        3
+❯ sudo pmset -a autopoweroff         1
+❯ sudo pmset -a displaysleep         2
+❯ sudo pmset -a tcpkeepalive         1
+❯ sudo pmset -a lidwake              1
+```
+
+### Quick Sleep ###
+
+In addition to the lid close event, which triggers FVkey eviction in 60 seconds, we can add other quick actions to put the system in a locked state.
+
+Adding a sleep option to the touch bar is one. From **System Preferences**, **Keyboard**, **Customize Control Strip**, drag the "lock" and "sleep" buttons to the touch bar.
+
+![sleep icon](images/touch-bar.png)
+
+
+Next, set one of the hotcorners to immediately put the display to sleep, requiring user auth on wake.
+
+Set hot-corner:
+
+`❯ sudo defaults write com.apple.dock wvous-tl-corner -int 10`  
+`❯ sudo defaults write com.apple.dock wvous-tl-modifier -int 0`  
+
+Go to, **System Preferences**, **Security & Privacy**, **General**, and set the option to "Require password 'immediately' after sleep or screen saver begins"
+
+![screensaver-pass](images/screensaver-pass.png)
+
+
+
