@@ -3,4 +3,5 @@
 - [Preparing to install](pages/prepare.md)
 - [Installing macOS](pages/install.md)
 - [Hardware](pages/hardware.md)
+- [Privacy and Anonymity](pages/privacy.md)
 - [References](pages/references.md)

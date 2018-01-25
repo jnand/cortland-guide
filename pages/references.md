@@ -14,3 +14,5 @@ References
 11. Configuring the Touch Bar for System Lockdown. [source](https://www.zdziarski.com/blog/?p=6705)
 12. Best Practices for Deploying FileVault 2. [source](http://training.apple.com/pdf/WP_FileVault2.pdf)
 13.  Cold Boot Attacks on Encryption Keys. [source](https://www.usenix.org/legacy/event/sec08/tech/full_papers/halderman/halderman.pdf)
+14. Avoiding known bad guys. [source](https://ikawnoclast.com/security/mac-os-x-pf-firewall-avoiding-known-bad-guys/)
+15. `Pf` setup. [source](https://github.com/stefancaspersz/pf-setup)
