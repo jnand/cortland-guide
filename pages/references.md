@@ -16,3 +16,5 @@ References
 13.  Cold Boot Attacks on Encryption Keys. [source](https://www.usenix.org/legacy/event/sec08/tech/full_papers/halderman/halderman.pdf)
 14. Avoiding known bad guys. [source](https://ikawnoclast.com/security/mac-os-x-pf-firewall-avoiding-known-bad-guys/)
 15. `Pf` setup. [source](https://github.com/stefancaspersz/pf-setup)
+16. DNSCrypt OSX. [source](https://github.com/alterstep/dnscrypt-osxclient)
+

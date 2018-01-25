@@ -28,6 +28,22 @@ Analytics is disabled.
 ```
 
 
+DNSCrypt
+----------
+
+The DNS protocol has a number of vulnerabilities that pose [serious risks](https://en.wikipedia.org/wiki/Domain_Name_System#Security_issues) to any networked system. Specifically we want to mitigate information leakage over the clear text protocol, enforce non-repudiation, and strong identification of lookups.
+
+To do this we'll rely on a trusted list of Name servers implementing the [DNSsec](https://www.icann.org/resources/pages/dnssec-qaa-2014-01-29-en) protocol, and use encrypted communication with them via DNSCrypt. 
+
+The tools needed to do this, `dnscrypt-proxy` and `dnsmasq` are bundled into a GUI pane available via homebrew.
+
+Install the GUI Preferences pane
+
+`❯  brew cask install dnscrypt`
+
+![dnscrypt](images/dnscrypt.png)
+
+
 Emerging threats
 -----------------
 
