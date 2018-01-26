@@ -152,5 +152,3 @@ Fully derisking this model involves:
     8.3. Automated new system provisioning  
     8.4. Key recovery protocol  
 
-
-[Next](pages/prepare.md)

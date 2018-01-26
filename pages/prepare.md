@@ -268,4 +268,3 @@ available storage.
 ```
 
 
-[Next](pages/install.md)

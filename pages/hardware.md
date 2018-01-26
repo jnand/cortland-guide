@@ -116,4 +116,3 @@ Go to, **System Preferences**, **Security & Privacy**, **General**, and set the 
 ![screensaver-pass](images/screensaver-pass.png)
 
 
-

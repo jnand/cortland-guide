@@ -310,5 +310,3 @@ mas "1Password", id: 443987910
 ```
 
 
-[Next](pages/hardware.md)
-
