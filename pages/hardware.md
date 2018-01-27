@@ -16,6 +16,7 @@ To audit the seal, simply take a new photo with a ruler in frame and open the be
 
 ![uv-tamper](images/uv-tamper.jpg)
 
+---
 
 Firmware
 ---------
@@ -70,6 +71,7 @@ Setting Firmware Password
 Enter password:
 ```
 
+---
 
 Standby, Sleep, & Hibernate
 ---------------------------
