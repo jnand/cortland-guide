@@ -18,3 +18,6 @@ References
 15. `Pf` setup. [source](https://github.com/stefancaspersz/pf-setup)
 16. DNSCrypt OSX. [source](https://github.com/alterstep/dnscrypt-osxclient)
 17. Apple OS X Lion Security: Captive Portal Hijacking Attack. [source](https://www.securestate.com/blog/2011/10/07/apple-os-x-lion-captive-portal-hijacking-attack)
+18. Creating the perfect GPG keypair. [source](https://alexcabal.com/creating-the-perfect-gpg-keypair/)
+19. YubiKey Guide. [source](https://github.com/drduh/YubiKey-Guide#configure-smartcard)
+20. GPG, Yubikey, SSH. [source](https://medium.com/@ahawkins/securing-my-digital-life-gpg-yubikey-ssh-on-macos-5f115cb01266)
