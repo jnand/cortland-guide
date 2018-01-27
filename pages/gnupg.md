@@ -433,7 +433,7 @@ ssb>  rsa4096/0x7666562DB1D05A07 2018-01-01 [A]
 You should see **`sec#`** indicating the Master key has no secret present.
 
 
-!> Ensure any exported keyfiles are securely stored and erased form the working directory. Later we'll cover secure backups and key recovery.
+!> Ensure any exported keyfiles are securely stored and erased form the working directory. Keeping a copy in your keychain is a good practice. Later we'll cover secure backups and key recovery.
 
 
 ### Importing keys ###

@@ -52,11 +52,11 @@ requirements) connect to a secure local/dummy wifi SSID.
 
 When prompted to create your account, use your **Level I** password, without a hint.
 
-!> Uncheck, "Allow my Apple ID to reset this password"
+!> Uncheck, "Allow my Apple ID to reset this password".
 
 ![User account](images/create-new-account.png)
 
-!> Moreover, when prompted regarding FilVault recovery and/or login opt to create recovery keys instead of an iCloud reset, and **Do Not** allow any users to "unlock the disk". This will be important later on when we setup Yubikey MFA.
+!> Moreover, when prompted regarding FilVault and/or login recovery opt to create recovery keys instead of an iCloud reset, and **Do Not** allow any users to "unlock the disk". This will be important later on when we setup Yubikey MFA. Take note of the recovery key for storage in your keepass keychain once setup.
 
 Finish Apple's guided setup.
 
