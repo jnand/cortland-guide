@@ -21,3 +21,5 @@ References
 18. Creating the perfect GPG keypair. [source](https://alexcabal.com/creating-the-perfect-gpg-keypair/)
 19. YubiKey Guide. [source](https://github.com/drduh/YubiKey-Guide#configure-smartcard)
 20. GPG, Yubikey, SSH. [source](https://medium.com/@ahawkins/securing-my-digital-life-gpg-yubikey-ssh-on-macos-5f115cb01266)
+21. Yubikey PIV device setup. [source](https://developers.yubico.com/PIV/Guides/Device_setup.html)
+22. YuniKey MacOS Login. [spurce](https://www.yubico.com/wp-content/uploads/2016/02/Yubico_YubiKeyMacOSXLogin_en.pdf)
