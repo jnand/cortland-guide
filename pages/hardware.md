@@ -219,6 +219,8 @@ Open the PIV manager tool, it should detect a new yubikey and prompt for setup.
 
 ![piv-man](images/yubikey-piv-man.png)
 
+> The default PIN code is **`123456`** and **`12345678`** for the Admin PIN (aka PUK). The Reset Code (Management Key) can be up to 127 ASCII characters long.
+
 Set your PIV codes & key, _Saving a copies to your keychain_
 
 * [ ] PIN
