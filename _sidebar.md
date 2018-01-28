@@ -4,6 +4,7 @@
 - [Installing macOS](pages/install.md)
 - [Hardware](pages/hardware.md)
 - [Encryption](pages/encryption.md)
+- [Cryptographic methods](pages/encryption.md)
     - [GNU Privacy Guard](pages/gnupg.md)
     - [YubiKey](pages/yubikey.md)
 - [Privacy & Anonymity](pages/privacy.md)
