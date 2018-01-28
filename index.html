@@ -13,6 +13,9 @@
     .app-sub-sidebar li:before {content: none;}
     .center {text-align: center;}
     li input[type=checkbox] {margin: 0 1em .25em -1.6em;}
+    /* hack: woraround for infoboxes*/
+    .markdown-section pre > code.lang-info{background-color: transparent}
+    pre[data-lang=info] {background-color: rgba(21, 196, 249, 0.13);}
   </style>
 </head>
 <body>
