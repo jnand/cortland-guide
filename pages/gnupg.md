@@ -435,6 +435,24 @@ You should see **`sec#`** indicating the Master key has no secret present.
 
 !> Any exported keyfiles should be securely stored and erased form the working directory. Keeping a copy in your keychain is a good practice. Later we'll cover secure backups and key recovery.
 
+### Test run ###
+
+Run a quick end-to-end sanity check.
+
+`❯ echo "$(uname -a)" | gpg --encrypt --sign --armor --recipient AA78C02FE62BF171 | gpg --decrypt --armor`
+
+```stdout
+gpg: using "E2DCD9A862D89D4C1D915469AA78C02FE62BF171" as default secret key for signing
+gpg: encrypted with 4096-bit RSA key, ID 0xE37883053D51C06F, created 2018-01-01
+      "----- <-----@---.com>"
+Darwin zebra.local 17.4.0 Darwin Kernel Version 17.4.0: Sat Jan 01 00:00:01 PST 2018; root:xnu-4570.41.2~1/RELEASE_X86_64 x86_64
+gpg: Signature made Sat Jan 01 00:00:01 2018 PST
+gpg:                using RSA key 3B3FBC948FE59301ED629EFB6AE6D7EE46A871F8
+gpg: Good signature from "----- <-----@---.com>" [ultimate]
+gpg:                 aka "[jpeg image of size 5439]" [ultimate]
+Primary key fingerprint: E2DC D9A8 62D8 9D4C 1D91  5469 AA78 C02F E62B F171
+```
+
 
 ### Importing keys ###
 
@@ -446,5 +464,30 @@ To import previously exported keyfiles follow the procedure:
 4. `❯ gpg --homedir ~/gpgtmp --keyring ~/.gnupg/pubring.kbx --edit-key AA78C02FE62BF171`
 
 This will load the keys into a temporary keyring for performing management functions -- this is so we don't accidentally reintroduce the master key into our primary keyring (`~/.gnupg`).
+
+?> You may need to trust, `ultimately`, an imported key, depending on what you're doing; follow the example in the below infobox.
+
+```info
+❯ gpg --edit-key AA78C02FE62BF171
+
+gpg> trust 
+
+...
+
+Please decide how far you trust this user to correctly verify other users' keys
+(by looking at passports, checking fingerprints from different sources, etc.)
+
+  1 = I don't know or won't say
+  2 = I do NOT trust
+  3 = I trust marginally
+  4 = I trust fully
+  5 = I trust ultimately
+  m = back to the main menu
+
+Your decision? 5
+
+gpg> save
+gpg> quit
+```
 
 
