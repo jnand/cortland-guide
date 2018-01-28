@@ -83,7 +83,7 @@ use-agent
 Master key
 -----------
 
-We'll follow the off-line master-key pattern for creating out keys, and use subkeys for authenticating, signing, and encrypting data.
+We'll follow the off-line master-key pattern for creating our keys, while using subkeys for authentication, signing, and encrypting data.
 
 `❯ gpg --full-gen-key`
 
@@ -135,9 +135,9 @@ You selected this USER-ID:
 Change (N)ame, (C)omment, (E)mail or (O)kay/(Q)uit? O
 ```
 
-Enter a password for you **Master key**, don't leave this blank, as the master key is responsible for all sub-keys and represents your cryptographic identity online -- if compromised a password will be your last line of defense if an attacker get hold of your Master key.
+Enter a password for your **Master key**, don't leave this blank, as the master key is responsible for all sub-keys and represents your cryptographic identity online -- if compromised a password will be your last line of defense if an attacker gets hold of your Master key.
 
-?> However, when creating **subkeys** skip password protecting the key since we'll be loading the subkeys onto the Yubikey and setting a pin-code.
+?> However, when creating **subkeys** skip password protection, since we'll be loading the subkeys onto the Yubikey and setting a pin-code.
 
 ```bash
       ┌──────────────────────────────────────────────────────┐
@@ -216,7 +216,7 @@ Enter `gpg> save`
 Encrypt subkey
 ---------------
 
-If `--full-gen-key` did not already create an encrypt only subkey, `[E]`, then use the commands below as prompted to create one.
+If `--full-gen-key` did not already create an encrypt only subkey, **`[E]`**, then use the commands below as prompted to create one.
 
 `❯ gpg --edit-key AA78C02FE62BF171`
 
@@ -260,7 +260,7 @@ GPG will generate the key, once done enter `gpg> save`
 Signing subkey
 ---------------
 
-Repeat the key generation steps, but this time for a **signing only**, **`[S]`** key.
+Repeat the key generation steps, but this time for a **signing only**, **`[S]`**, key.
 
 `❯ gpg --edit-key AA78C02FE62BF171`
 
@@ -278,7 +278,7 @@ At each prompt supply the appropriate configuration:
 Authentication subkey
 ----------------------
 
-Repeat the key generation steps, but this time for an **authentication only**, **`[A]`** key.
+Repeat the key generation steps, but this time for an **authentication only**, **`[A]`**, key.
 
 `❯ gpg --expert --edit-key AA78C02FE62BF171`
 
@@ -312,7 +312,7 @@ Revocation certificate
 
 In the unfortunate event your master key is compromised, youll want to alert the key servers as soon as possible, to do this you'll need a revocation certificate.
 
-`❯ gpg --output master.gpg-revocation-certificate --gen-revoke AA78C02FE62BF171`
+`❯ gpg --output master-revocation-certificate.gpg --gen-revoke AA78C02FE62BF171`
 
 ```bash
 sec  rsa4096/AA78C02FE62BF171 2018-01-01 ----- <-----@---.com>
@@ -350,10 +350,10 @@ your media become unreadable.  But have some caution:  The print system of
 your machine might store the data and make it available to others!
 ```
 
-There should now be a file in your current directory named `master.gpg-revocation-certificate`, store this in a safe place, **off-line** preferably.
+There should now be a file in your current directory named `master-revocation-certificate.gpg`, store this in a safe place, **off-line** preferably, adding a copy to your keychain.
 
 
-?> To revoke your master key, invalidating all its subkeys, import your revocation certificate (`gpg --import rev.cert`) and then inform the keyserver (`gpg --send <master-key-id>`).
+?> To revoke your master key, invalidating all its subkeys, import your revocation certificate (`gpg --import rev-cert.gpg`) and then inform the keyserver (`gpg --send <master-key-id>`).
 
 ---
 
@@ -386,23 +386,23 @@ ssb   rsa4096 2018-01-01 [A]
 
 Create a portable version of your public key.
 
-`❯ gpg --export --armor AA78C02FE62BF171 > public.gpg-key`
+`❯ gpg --export --armor AA78C02FE62BF171 > public-key.gpg`
 
 
 ### Export secrets ###
 
 Create a portable backup of our private keys.
 
-`❯ gpg --export-secret-keys --armor AA78C02FE62BF171 > private.gpg-key`
+`❯ gpg --export-secret-keys --armor AA78C02FE62BF171 > private-key.gpg`
 
 
 ### Export subkeys ###
 
 Export only our private subkeys in preparation to evict the private master key.
 
-`❯ gpg --export-secret-subkeys --armor AA78C02FE62BF171 > private.gpg-subkeys`
+`❯ gpg --export-secret-subkeys --armor AA78C02FE62BF171 > private-subkeys.gpg`
 
-?> To export selected keys you can use the command **`gpg --export-secret-subkeys E37883053D51C06F! --armor > private.gpg-subkeys`** remember to add the **`!`** after the key-id
+?> To export selected keys you can use the command **`gpg --export-secret-subkeys E37883053D51C06F! --armor > private-subkey.gpg`** remember to add the **`!`** after the key-id
 
 
 ### Evict private master key ###
@@ -412,7 +412,7 @@ Reset the keyring without the master key.
 
 1. `❯ gpg --delete-secret-key AA78C02FE62BF171`  
 2. `❯ gpg --delete-key AA78C02FE62BF171`  
-3. `❯ gpg --import public.gpg-key private.gpg-subkeys`  
+3. `❯ gpg --import public-key.gpg private-subkeys.gpg`  
 
 Ensure the master key is removed
 
@@ -433,7 +433,7 @@ ssb>  rsa4096/0x7666562DB1D05A07 2018-01-01 [A]
 You should see **`sec#`** indicating the Master key has no secret present.
 
 
-!> Ensure any exported keyfiles are securely stored and erased form the working directory. Keeping a copy in your keychain is a good practice. Later we'll cover secure backups and key recovery.
+!> Any exported keyfiles should be securely stored and erased form the working directory. Keeping a copy in your keychain is a good practice. Later we'll cover secure backups and key recovery.
 
 
 ### Importing keys ###
@@ -442,9 +442,9 @@ To import previously exported keyfiles follow the procedure:
 
 1. `❯ mkdir ~/gpgtmp`
 2. `❯ chmod 0700 ~/gpgtmp`
-3. `❯ gpg --homedir ~/gpgtmp --import private.gpg-key public.gpg-key`
+3. `❯ gpg --homedir ~/gpgtmp --import private-key.gpg public-key.gpg`
 4. `❯ gpg --homedir ~/gpgtmp --keyring ~/.gnupg/pubring.kbx --edit-key AA78C02FE62BF171`
 
-This will load the keys into a temporary keyring for creating new subkeys -- this is so we don't accidentally reintroduce the master key into our primary keyring (`~/.gnupg`).
+This will load the keys into a temporary keyring for performing management functions -- this is so we don't accidentally reintroduce the master key into our primary keyring (`~/.gnupg`).
 
 
