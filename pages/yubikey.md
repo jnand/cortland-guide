@@ -164,7 +164,7 @@ ssb  rsa4096/0x7666562DB1D05A07
 [ultimate] (2)  [jpeg image of size 5439]
 ```
 
-Notice how the key in position 1 is marked by an asterix, **`ssb`**. 
+Notice how the key in position 1 is marked by an asterix, **`ssb*`**. 
 
 Move the key, `gpg> keytocard`
 
@@ -257,11 +257,11 @@ Notice how the secret subkeys (ssb) now have a `>` next to them; they now exist 
 
 #### Require key press ####
 
-We want ensure the user is made aware when any private key is read.
+Ensure the user is made aware when any private key is read.
 
-`❯ ykman openpgp touch aut on`
-`❯ ykman openpgp touch sig on`
-`❯ ykman openpgp touch enc on`
+`❯ ykman openpgp touch aut on`  
+`❯ ykman openpgp touch sig on`  
+`❯ ykman openpgp touch enc on`  
 
 ### Test run ###
 
