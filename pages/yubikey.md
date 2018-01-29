@@ -407,6 +407,46 @@ Now log out and try singing back in, with and without the yubikey.
 
 ---
 
+### SSH + GPG ###
+
+Lets configure `ssh` to use our GPG keys via `gpg-agent`.
+
+#### Configuration ####
+
+Ensure _~/.gnupg/gpg-agent.conf_ is setup to use the yubikey, `❯ vi /.gnupg/gpg-agent.conf`
+
+?> Get the path of pinentry-mac if needed, `❯ which pinentry-mac`
+
+```/.gnupg/gpg-agent.conf 
+enable-ssh-support
+default-cache-ttl 600
+max-cache-ttl 7200
+pinentry-program /usr/local/bin/pinentry-mac
+```
+
+Update your rc file to include the env vars:
+
+```bash
+export "GPG_TTY=$(tty)"
+export "SSH_AUTH_SOCK=${HOME}/.gnupg/S.gpg-agent.ssh"
+```
+
+#### Authorized keys ####
+
+1. Insert the yubikey.
+
+2. Make sure gpg-agent is running, `❯ gpg-agent`
+
+    ```stdout
+    gpg-agent[90017]: gpg-agent running and available
+    ```
+
+3. **On the remote host**, trust the GPG auth key, `❯ ssh-add -L | grep -iF 'cardno' >> ~/.ssh/authorized_keys`
+4. Confirm the key is now present, `❯ cat ~/.ssh/authorized_keys`
+
+
+---
+
 ### FIDO U2F ###
 
 Universal Second Factor enables challenge-response style authentication for applications/services implementing the standard. For more information on cloud services compatible with U2F check the [yubico website](https://www.yubico.com/solutions/fido-u2f/).
