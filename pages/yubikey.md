@@ -337,7 +337,7 @@ In this section we'll be configuring macOS for step -3- of the user story.
 
 To cooperate with FDE, we need to disable user logon authentication from also unlocking the disk. This increases the robustness of our encryption and authentication schemes, but is also needed to allow [HMAC](https://en.wikipedia.org/wiki/Hash-based_message_authentication_code) generation during macOS logon **and** allow FileVault. This because the PAM extensions are not available pre-os when unlocking the disk.
 
-!> Leaving FDEAutoLogin enabled may lock you out of the system, requiring a single-user-mode workaround.
+!> Leaving FDEAutoLogin enabled may lock you out of the system, requiring a [single-user-mode](https://support.apple.com/en-us/HT201573) workaround.
 
 `❯ sudo defaults write /Library/Preferences/com.apple.loginwindow DisableFDEAutoLogin -bool YES`
 
@@ -365,7 +365,7 @@ Confirm the challenge token was created.
 
 #### Update Auth Config ####
 
-!> Before continuing, make sure you have a system backup, these changes can lock you out of your user account. Be sure to have access to your keychain in case you need the firmware password to get into single-user-mode.
+!> Before continuing, make sure you have a system backup, these changes can lock you out of your user account. Be sure to have access to your keychain in case you need the firmware password to get into [single-user-mode](https://support.apple.com/en-us/HT201573).
 
 
 To require yubikey when unlocking the screen or waking from sleep add the line 
@@ -441,7 +441,7 @@ export "SSH_AUTH_SOCK=${HOME}/.gnupg/S.gpg-agent.ssh"
     gpg-agent[90017]: gpg-agent running and available
     ```
 
-3. **On the remote host**, trust the GPG auth key, `❯ ssh-add -L | grep -iF 'cardno' >> ~/.ssh/authorized_keys`
+3. **On each host**, trust the GPG auth key, `❯ ssh-add -L | grep -iF 'cardno' >> ~/.ssh/authorized_keys`
 4. Confirm the key is now present, `❯ cat ~/.ssh/authorized_keys`
 
 
