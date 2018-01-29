@@ -405,4 +405,28 @@ account    required       pam_opendirectory.so
 
 Now log out and try singing back in, with and without the yubikey.
 
+---
+
+### FIDO U2F ###
+
+Universal Second Factor enables challenge-response style authentication for applications/services implementing the standard. For more information on cloud services compatible with U2F check the [yubico website](https://www.yubico.com/solutions/fido-u2f/).
+
+Support includes:
+
+- Google
+- Facebook
+- Salesforce
+- GitHub
+- Bitbucket
+- GitLab
+- Dropbox
+- Dashlane
+
+<div class="center">
+    <strong><u>How it works.</u></strong>
+    <p>![U2F](https://www.yubico.com/wp-content/uploads/2015/03/U2F.png)</p>
+    <em>U2F process flow</em>
+</div>
+
+> U2F Security Keys are supported by Google Chrome since version 38 and Opera since version 40. U2F security keys can be used as an additional method of two-step verification on online services that support the U2F protocol, including Google, Dropbox, GitHub, GitLab, Bitbucket, Nextcloud, Facebook and others.
 
