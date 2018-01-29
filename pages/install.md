@@ -85,6 +85,19 @@ For good measure create a standard user account for your day-to-day activities u
 
 ![new user](images/new-user.png)
 
+### Configuration ###
+
+Lets harden the account login settings a bit. ** System Preferences**, **Users & Groups**.
+
+- [ ] Disable automatic login
+- [ ] Disable User list (requite username entry)
+- [ ] Disable password hints
+
+![Login Options](images/login-options.png)
+
+Disable Guest account and sharing.
+
+![Guest account](images/guest-user.png)
 
 Firewall
 ---------
