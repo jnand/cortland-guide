@@ -313,7 +313,96 @@ Each should be **`RSA(2048 bits)`** and **`self-signed`**.
 
 ![piv-certgen](images/yubikey-piv-certgen.png)
 
+---
+
+System Integration
+------------------
+
+### User logon ###
+
+Now we're going to integrate the yubikey with macOS's logon authentication. We'll do this via the Pluggable Authentication Module (PAM) extension. [oem guide](https://www.yubico.com/support/knowledge-base/categories/articles/yubikey-mac-os-x-login-guide/)
+
+?> **Scenario:**  
+-1- The user powers on the macbook, and FileVault prompts to unlock the disk.  
+... _User enters a pepper, followed by a yubikey keypress, followed by a Level III passphrase_.  
+-2- MacOS prompts for user logon.  
+... _User enters username, followed by a Level I passphrase, presses <Return>_.  
+-3- System initiates a challenge-response sequence, yubikey starts to blink.  
+... _User presses yubikey, and successfully logs on_.  
+... _without the yubikey present, logon would fail_.  
+
+In this section we'll be configuring macOS for step -3- of the user story.
+
+#### FileVault ####
+
+To cooperate with FDE, we need to disable user logon authentication from also unlocking the disk. This increases the robustness of our encryption and authentication schemes, but is also needed to allow [HMAC](https://en.wikipedia.org/wiki/Hash-based_message_authentication_code) generation during macOS logon **and** allow FileVault. This because the PAM extensions are not available pre-os when unlocking the disk.
+
+!> Leaving FDEAutoLogin enabled may lock you out of the system, requiring a single-user-mode workaround.
+
+`❯ sudo defaults write /Library/Preferences/com.apple.loginwindow DisableFDEAutoLogin -bool YES`
 
 
+#### Drivers ####
+
+Earlier we `brew` installed the `pam_yubico` package. Lets verify everything is ready.
+
+`❯ ls /usr/local/lib/security`
+
+```stdout
+pam_yubico.so
+```
+
+#### Configure Challenge Response Logon ####
+
+- [ ] Create a config dir for the yubikey. `❯ mkdir –m0700 –p ~/.yubico`
+- [ ] Insert the yubikey
+- [ ] Generate the config. `❯ ykpamcfg -2`
+
+Confirm the challenge token was created.
+
+`❯ cat /Users/[USERNAME]/.yubico/challenge-*[YUBIKEY SERIAL NUMBER]*`
+
+
+#### Update Auth Config ####
+
+!> Before continuing, make sure you have a system backup, these changes can lock you out of your user account. Be sure to have access to your keychain in case you need the firmware password to get into single-user-mode.
+
+
+To require yubikey when unlocking the screen or waking from sleep add the line 
+
+```config
+auth required /usr/local/lib/security/pam_yubico.so mode=challenge-response
+```
+
+to _/etc/pam.d/screensaver_, `❯ sudo vi /etc/pam.d/screensaver`
+
+
+```/etc/pam.d/screensaver
+# screensaver: auth account
+auth       optional       pam_krb5.so use_first_pass use_kcminit
+auth       required       pam_opendirectory.so use_first_pass nullok
+auth       required       /usr/local/lib/security/pam_yubico.so mode=challenge-response
+account    required       pam_opendirectory.so
+account    sufficient     pam_self.so
+account    required       pam_group.so no_warn group=admin,wheel fail_safe
+account    required       pam_group.so no_warn deny group=admin,wheel ruser fail_safe
+```
+
+To require yubikey for new logons and/or auth sessions add the same line to _/etc/pam.d/authorization_
+
+`❯ sudo vi /etc/pam.d/authorization`
+
+```/etc/pam.d/authorization
+# authorization: auth account
+auth       optional       pam_krb5.so use_first_pass use_kcminit
+auth       optional       pam_ntlm.so use_first_pass
+auth       required       pam_opendirectory.so use_first_pass nullok
+auth       required       /usr/local/lib/security/pam_yubico.so mode=challenge-response
+account    required       pam_opendirectory.so
+```
+
+?> This will **not** require the yubikey for sudo, as intended, to ease frequent command line use. Note: the system should not have any remote access services running via this guide *e.g* sshd, vnc, etc.
+
+Now log out and try singing back in, with and without the yubikey.
 
 
