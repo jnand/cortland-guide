@@ -251,4 +251,19 @@ Create the `pflog0` interface
 
 *Use Wireshark to view the log entries written to pflog0*
 
+---
+
+Keybase chat
+-------------
+
+The keybase chat application is available across multiple platforms; Windows, Linux, Mac, iOS, Android, etc. It works by securely encrypting communications with device specific key pairs, allowing you to revoke access to a specific device if needed. Individual messages can also be removed from the log.
+
+
+<div class="center">
+    <strong><u>Keybase chat</u></strong>
+    <p>![keybase](images/keybase-chat.png)</p>
+    <em>macOS client</em>
+</div>
+
+
 
