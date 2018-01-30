@@ -8,4 +8,4 @@
     - [YubiKey](pages/yubikey.md)
     - [OpenSSH](pages/ssh.md)
 - [Privacy & Anonymity](pages/privacy.md)
-- [References](pages/references.md)- [Congratulations!](pages/references.md)
+- [Congratulations!](pages/references.md)
