@@ -39,10 +39,10 @@ ChallengeResponseAuthentication no
 
 
 <div class='center'>
+    <br>
     <a href="#/pages/privacy" style="text-decoration: none;">
-        <strong><span>Next</span></strong>
-        <strong><span style="vertical-align: middle;">&#8679;</span></strong>       
-        <small>Privacy & Anonymity</small>
+        <span>Next</span>
+        <span><i class="fa fa-arrow-up" aria-hidden="true" style="vertical-align: middle;"></i></span>
+        <p><small>Privacy & Anonymity</small>...</p>
     </a>
-    <span>...</span>
 </div>

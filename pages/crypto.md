@@ -8,11 +8,11 @@ Applying cryptographic methods are a crucial part of securing any system, not ju
 
 
 <div class='center'>
+    <br>
     <a href="#/pages/gnupg" style="text-decoration: none;">
-        <strong><span>Next</span></strong>
-        <strong><span style="vertical-align: middle;">&#8681;</span></strong>       
-        <small>GNU Privacy Guard</small>
-    </a>
-    <span>...</span>
+        <span>Next</span>
+        <span><i class="fa fa-arrow-down" aria-hidden="true" style="vertical-align: middle;"></i></span>
+        <p><small>GNU Privacy Guard</small>...</p>
+    </a>    
 </div>
 
