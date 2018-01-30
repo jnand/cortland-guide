@@ -1,5 +1,25 @@
-References
-==========
+
+Congratulations!
+===============
+
+![rene-magritte](images/rene-magritte.png)
+
+
+Contributing
+============
+
+Any help with this guide is greatly appreciated.  
+If you have feedback or corrections theres a `Github`
+link at the top right of the page for convenience.  
+Or if you'd like to make larger additions or revisions,   
+create a topic branch and submit a pull request.
+
+Thanks!
+
+---
+
+References 
+===========
 
 1. macOS security guide. [source](https://github.com/drduh/macOS-Security-and-Privacy-Guide)
 2. NIST Guide to securing macOS. [source (pdf)](https://csrc.nist.gov/csrc/media/publications/sp/800-179/archive/2016-06-23/documents/sp800_179_draft.pdf)
@@ -22,5 +42,5 @@ References
 19. YubiKey Guide. [source](https://github.com/drduh/YubiKey-Guide#configure-smartcard)
 20. GPG, Yubikey, SSH. [source](https://medium.com/@ahawkins/securing-my-digital-life-gpg-yubikey-ssh-on-macos-5f115cb01266)
 21. Yubikey PIV device setup. [source](https://developers.yubico.com/PIV/Guides/Device_setup.html)
-22. YuniKey MacOS Login. [spurce](https://www.yubico.com/wp-content/uploads/2016/02/Yubico_YubiKeyMacOSXLogin_en.pdf)
+22. YuniKey MacOS Login. [source](https://www.yubico.com/wp-content/uploads/2016/02/Yubico_YubiKeyMacOSXLogin_en.pdf)
 23. Boot into single user mode. [source](https://support.apple.com/en-us/HT201573)
