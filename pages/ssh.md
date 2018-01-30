@@ -1,8 +1,8 @@
 
-OpenSSH
-=======
+Open SSH/SSL
+=============
 
-macOS's remote login functionality is built on OpenSSH, and defaults permission to any user in the _admin_ group. Most day-to-day use will only need the client, and the server should remain disabled.
+Most day-to-day use will only need a `ssh` client and the server should remain disabled; however, the default `sshd` permissions allow any user in the _admin_ group to connect, and should be hardened a bit should the need to enable it arise.
 
 SSH
 ----
@@ -15,6 +15,8 @@ Ensure *ssh_config* contains the directives below, `❯ sudo vim /etc/ssh/ssh_co
 Host *
   HashKnownHosts yes
 ```
+
+---
 
 SSHD
 ------
@@ -36,6 +38,32 @@ PermitEmptyPasswords no
 # Change to no to disable s/key passwords
 ChallengeResponseAuthentication no
 ```
+
+These settings disable password authentication and require a trusted key-pair be used instead.
+
+---
+
+SSL
+----
+
+Check the implementation and protocol version of openssl are current, 
+
+`❯ openssl version`
+
+```stdout
+LibreSSL 2.2.7
+```
+
+`❯ openssl s_client -connect github.com:443 2>&1 | grep -A2 SSL-Session`
+
+```stdout
+OpenSSL 1.0.2j  26 Sep 2016
+SSL-Session:
+    Protocol  : TLSv1.2
+    Cipher    : ECDHE-RSA-AES128-GCM-SHA256
+```
+
+If needed, install a more current version, `❯ brew install openssl`
 
 
 <div class='center'>

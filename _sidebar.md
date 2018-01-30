@@ -6,6 +6,6 @@
 - [Cryptographic methods](pages/crypto.md)
     - [GNU Privacy Guard](pages/gnupg.md)
     - [YubiKey](pages/yubikey.md)
-    - [OpenSSH](pages/ssh.md)
+    - [Open SSH/SSL](pages/ssh.md)
 - [Privacy & Anonymity](pages/privacy.md)
 - [Congratulations!](pages/references.md)
