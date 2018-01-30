@@ -265,5 +265,9 @@ The keybase chat application is available across multiple platforms; Windows, Li
     <em>macOS client</em>
 </div>
 
+!> Keybase does **NOT** support [Perfect Forward Secrecy](https://en.wikipedia.org/wiki/Forward_secrecy). For PFS style communication try a chat app that supports OTR or Axolotl prekeys, like [WhatsApp](https://www.whatsapp.com/) or **[Signal](https://signal.org/)**. Be sure to disable on device backups to secure past messages when a device key is revoked.
+
+
+
 
 
