@@ -44,4 +44,4 @@ References
 21. Yubikey PIV device setup. [source](https://developers.yubico.com/PIV/Guides/Device_setup.html)
 22. YuniKey MacOS Login. [source](https://www.yubico.com/wp-content/uploads/2016/02/Yubico_YubiKeyMacOSXLogin_en.pdf)
 23. Boot into single user mode. [source](https://support.apple.com/en-us/HT201573)
-
+24. Route Web Traffic Securely Without a VPN Using a SOCKS. [source](https://www.digitalocean.com/community/tutorials/how-to-route-web-traffic-securely-without-a-vpn-using-a-socks-tunnel)

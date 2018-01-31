@@ -267,7 +267,56 @@ The keybase chat application is available across multiple platforms; Windows, Li
 
 !> Keybase does **NOT** support [Perfect Forward Secrecy](https://en.wikipedia.org/wiki/Forward_secrecy). For PFS style communication try a chat app that supports OTR or Axolotl prekeys, like [WhatsApp](https://www.whatsapp.com/) or **[Signal](https://signal.org/)**. Be sure to disable on device backups to secure past messages when a device key is revoked.
 
+---
+
+VPNs & Proxies
+---------------
+
+When using your macbook on untrusted networks or using peer-to-peer protocols -- _e.g._ Bittorrent, protecting your IP address and network traffic maybe critical to prevent tracking & monitoring. Moreover, unsecured traffic may be easily tampered with and facilitate other vectors _i.e. MITM phishing_.
+
+!> If you are whistle blowing or need more robust anonymity look into [Tor](https://www.torproject.org/projects/torbrowser.html) and [I2P](https://geti2p.net/en/). However, these tools are beyond th scope of our threat model.
 
 
+### VPN ###
+
+> When choosing a VPN service or setting up your own, be sure to research the protocols, key exchange algorithms, authentication mechanisms, and type of encryption being used. Some protocols, such as PPTP, should be avoided in favor of **[OpenVPN](https://en.wikipedia.org/wiki/OpenVPN)**, for example.
+
+> Some clients may send traffic over the next available interface when VPN is interrupted or disconnected. See [scy/8122924](https://gist.github.com/scy/8122924) for an example on how to allow traffic only over VPN.
+
+
+For anonymity, using a hosted VPN service should provide sufficient protection against IP tracking and traffic monitoring.
+
+[Private Internet Access](https://www.privateinternetaccess.com/) is often [rated highly](https://www.tomsguide.com/us/best-vpn,review-4292.html) for its feature set and price.
+
+- Windows, Mac, Android, iOS, Linux, Chrome extension
+- 5 Devices
+- 3,200+ servers
+- 29 countries
+- Ad blocker
+- Pay via Credit card, PayPal, Bitcoin, gift cards, ...
+- Kill switch
+- OpenVPN, L2TP/IPsec, PPTP
+
+
+### Proxy ###
+
+In some cases _anonymity_ via a VPN may be unnecessary, and _privacy_ via a [SOCKS proxy](https://www.digitalocean.com/community/tutorials/how-to-route-web-traffic-securely-without-a-vpn-using-a-socks-tunnel) is enough -- _see: [privacy vs anonymity](https://www.privateinternetaccess.com/blog/2013/10/how-does-privacy-differ-from-anonymity-and-why-are-both-important/)_
+
+Open a ssh tunnel to your remote machine, listening on **`8888`**:
+
+`❯ ssh -oControlMaster=no -D 8888 -vvv -N username@server_address`
+
+_The remote host should authenticate via key only_
+
+**Explanation of arguments**
+
+| Flag | Effect |
+|:-----|:-------|
+|-D | Tells SSH that we want a SOCKS tunnel on the specified port number (you can choose a number between 1025-65536)|
+|-C | Compresses the data before sending it |
+|-q | Uses quiet mode |
+|-N | Tells SSH that no command will be sent once the tunnel is up |
+|-vvv | Enables verbose mode |
+|-o ControlMaster=no| Don't use cached/multiplexed sessions, _i.e_ close on process termination |
 
 
