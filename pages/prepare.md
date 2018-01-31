@@ -33,6 +33,59 @@ FileVaule prompts for disk password. User plugs in yubikey, presses button, yubi
 
 The strategy should become more clear throughout the guide and during yubikey integration.
 
+---
+
+Keyfiles
+---------
+
+In addition to the passphrases we just created, we'll need a set of keyfiles for use with our keychain and secure volumes.
+
+You'll want to create 10 keyfiles, at minimum; wherever a composite key is used (phrase+keyfile...) you'll open this directory and select the correct keyfile(s) -- _effectively salting the passphrase_.
+
+We'll generate these keyfiles using atmospheric noise from [random.org](https://www.random.org/bytes/), creating truly random data; then xor that against our local PRNG for added security.
+
+1. Create a ramdisk to work in,  
+  `❯ diskutil partitionDisk $(hdiutil attach -nomount ram://20480) 1 GPTFormat APFS 'ramdisk' '100%'`
+2. Enter the ramdisk, `❯ cd /Volumes/ramdisk`
+3. Save this helper script to `xor.py` [source](https://www.megabeets.net/xor-files-python/)
+  ```python
+  #######################
+  # Use: ./xor.py file1 file2 outfile
+  # Example: ./xor.py a.txt b.txt result.txt
+  #######################
+
+  import sys
+
+  # Read two files as byte arrays
+  file1_b = bytearray(open(sys.argv[1], 'rb').read())
+  file2_b = bytearray(open(sys.argv[2], 'rb').read())
+
+  # Set the length to be the smaller one
+  size = len(file1_b) if file1_b < file2_b else len(file2_b)
+  xord_byte_array = bytearray(size)
+
+  # XOR between the files
+  for i in range(size):
+    xord_byte_array[i] = file1_b[i] ^ file2_b[i]
+
+  # Write the XORd bytes to the output file 
+  open(sys.argv[3], 'wb').write(xord_byte_array)
+
+  print "[*] %s XOR %s\n[*] Saved to \033[1;33m%s\033[1;m."%(sys.argv[1], sys.argv[2], sys.argv[3])
+  ```
+4. Open <https://www.random.org/bytes/>  
+  4.1 Set the generator to "Generate" **`16384`** random bytes -- _for all our files_  
+  4.2 Set to **"Download to file"**, and click **"Get bytes"** creating the file `RandomNumbers` 
+5. Create some local noise, `❯ dd if=/dev/urandom bs=1 count=16384 2>/dev/null > PseudoRandomNumbers`
+6. XOR the files, `❯ python xor.py RandomNumbers PseudoRandomNumbers KeyData`
+7. Base64 encode, `❯ cat KeyData | base64 > KeyData.b64`
+8. Split into keyfiles, `❯ dd if=/Volumes/ramdisk/out.base64 bs=1 count=10240 |  split -b 1024`
+9. Move the files, `❯ mv /Volumes/ramdisk/xa* ~/Secrets/`
+10. Eject the ramdisk and restart to securely remove the working directory
+
+You should now have set of 10 keyfiles in your `~/Secrets` folder for use with composite key inputs. For memorability, rename the keyfiles using codewords of your choice, the [NATO alphabet](https://en.wikipedia.org/wiki/NATO_phonetic_alphabet) works too.
+
+---
 
 Get the installer
 -----------------
@@ -53,6 +106,7 @@ shows macOS High Sierra version 10.13, build 17A365:
 
 ![About this mac](https://support.apple.com/library/content/dam/edam/applecare/images/en_US/macos/macos-high-sierra-about-this-mac-overview-version-build.jpg)
 
+---
 
 Verify the distribution
 -----------------------
@@ -250,6 +304,7 @@ SHA256
 | 10.5.0           | 9A581   | 67ab755a3604cd767787fed56150bdb566358f69 |                                          |                                          |
 |                  |         |                                          |                                          |                                          |
 
+---
 
 Create install media
 --------------------
