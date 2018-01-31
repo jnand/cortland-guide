@@ -45,3 +45,5 @@ References
 22. YuniKey MacOS Login. [source](https://www.yubico.com/wp-content/uploads/2016/02/Yubico_YubiKeyMacOSXLogin_en.pdf)
 23. Boot into single user mode. [source](https://support.apple.com/en-us/HT201573)
 24. Route Web Traffic Securely Without a VPN Using a SOCKS. [source](https://www.digitalocean.com/community/tutorials/how-to-route-web-traffic-securely-without-a-vpn-using-a-socks-tunnel)
+25. Recommendation for Block Cipher Modes of Operation: The XTS-AES Mode for Confidentiality on Storage Devices. [source](http://csrc.nist.gov/publications/nistpubs/800-38E/nist-sp-800-38E.pdf)
+26. Best Practices for Deploying FileVault 2. [source](http://training.apple.com/pdf/WP_FileVault2.pdf)
