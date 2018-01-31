@@ -297,6 +297,7 @@ For anonymity, using a hosted VPN service should provide sufficient protection a
 - Kill switch
 - OpenVPN, L2TP/IPsec, PPTP
 
+!> Private internet access's client tends to cause problems with macOS's native firewall, using [tunnelblick](https://tunnelblick.net) may be a better alternative. See the [PIA tunnelblick guide](https://www.privateinternetaccess.com/pages/client-support/osx-openvpn-tunnelblick)
 
 ### Proxy ###
 
