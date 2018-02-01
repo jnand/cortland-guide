@@ -2,7 +2,7 @@
 - [Threat model](pages/model.md)
 - [Preparing to install](pages/prepare.md)
 - [Installing macOS](pages/install.md)
-- [Keychain](pages/keychain/setup.md)
+- [Keychain](pages/keychain.md)
 - [Hardware](pages/hardware.md)
 - [Cryptographic methods](pages/crypto.md)
 - [Privacy & Anonymity](pages/privacy.md)
