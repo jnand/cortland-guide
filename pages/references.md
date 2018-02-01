@@ -50,4 +50,4 @@ References
 26. Best Practices for Deploying FileVault 2. [source](http://training.apple.com/pdf/WP_FileVault2.pdf)
 27. How To Generate Truly Random Bits. [source](http://openfortress.org/cryptodoc/random/)
 28. Python XOR. [source](https://www.megabeets.net/xor-files-python/)
-
+29. Public/private + symmetric key encryption for backups. [source](https://www.backblaze.com/blog/how-to-make-strong-encryption-easy-to-use/)

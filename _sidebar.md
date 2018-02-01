@@ -6,5 +6,6 @@
 - [Hardware](pages/hardware.md)
 - [Cryptographic methods](pages/crypto.md)
 - [Privacy & Anonymity](pages/privacy.md)
+- [Backup & Recovery](pages/backup.md)
 - [Intrusion detection](pages/ids.md)
 - [Congratulations!](pages/references.md)
