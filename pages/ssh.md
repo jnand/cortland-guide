@@ -70,7 +70,7 @@ If needed, install a more current version, `❯ brew install openssl`
     <br>
     <a href="#/pages/privacy" style="text-decoration: none;">
         <span>Next</span>
-        <span><i class="fa fa-arrow-up" aria-hidden="true" style="vertical-align: middle;"></i></span>
+        <span><i class="fas fa-arrow-up" aria-hidden="true" style="vertical-align: middle;"></i></span>
         <p><small>Privacy & Anonymity</small>...</p>
     </a>
 </div>

@@ -11,7 +11,7 @@ Applying cryptographic methods are a crucial part of securing any system, not ju
     <br>
     <a href="#/pages/gnupg" style="text-decoration: none;">
         <span>Next</span>
-        <span><i class="fa fa-arrow-down" aria-hidden="true" style="vertical-align: middle;"></i></span>
+        <span><i class="fas fa-arrow-down" aria-hidden="true" style="vertical-align: middle;"></i></span>
         <p><small>GNU Privacy Guard</small>...</p>
     </a>    
 </div>

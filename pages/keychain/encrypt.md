@@ -1,4 +1,4 @@
-Keychain <i class="fa fa-lock"></i><span  style="vertical-align: text-top;">+</span>
+Keychain <i class="fas fa-lock"></i><span  style="vertical-align: text-top;">+</span>
 ==========
 
 To improve the security of our keychain further, we'll add our yubikey to the composite key. 
