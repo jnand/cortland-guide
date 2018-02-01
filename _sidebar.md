@@ -12,4 +12,5 @@
     - [Keybase](pages/keybase.md)
     - [Open SSH/SSL](pages/ssh.md)
 - [Privacy & Anonymity](pages/privacy.md)
+- [Intrusion detection](pages/ids.md)
 - [Congratulations!](pages/references.md)
