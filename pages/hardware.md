@@ -1,7 +1,7 @@
 Hardware
 =========
 
-The unibody design of the macbook pro makes tamper proofing much easier than more user serviceable cases. With a few creative tricks and some config changes, the system can easily hardened against tampering.
+The unibody design of the macbook pro makes tamper proofing much easier than more user serviceable cases. With a few creative tricks and some config changes, the system can easily be hardened against tampering.
 
 Tamper evident 
 --------------

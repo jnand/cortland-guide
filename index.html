@@ -38,6 +38,18 @@
           '<i class="far fa-edit" aria-hidden="true"></i> Edit'
         ),
       ]
+      markdown: {
+        renderer: {
+          heading: function(text, level) {            
+            var _heading, hide;
+            hide = /{hide}/g.test(text);
+
+            if (hide) text = text.replace('{hide}', '');
+            _heading = this.origin.heading.apply(this, arguments);        
+            return (hide) ? '' : _heading;
+          }          
+        }
+      }
     }    
   </script>
 

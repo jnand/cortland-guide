@@ -1,0 +1,8 @@
+- [<i class="fas fa-long-arrow-alt-left"></i> Back](pages/crypto.md)
+- [Cryptographic methods](pages/crypto.md)
+    - [GNU Privacy Guard](pages/crypto/gnupg.md)
+    - [YubiKey](pages/crypto/yubikey.md)
+    - [Keychain](pages/crypto/keychain-encrypt.md)
+    - [Encrypted Volumes](pages/crypto/volumes.md)
+    - [Keybase](pages/crypto/keybase.md)
+    - [Open SSH/SSL](pages/crypto/ssh.md)
