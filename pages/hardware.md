@@ -6,7 +6,7 @@ The unibody design of the macbook pro makes tamper proofing much easier than mor
 Tamper evident 
 --------------
 
-The easiest method for tamper proofing a macbook pro is to paint over one or two of the case screws on the underside of the laptop using a coarse flake glitter nail polish. After the polish is dried take a close up squared photograph of the area, preferably with a ruler in view for size refrence. Then use you PGP key to sign the images and store them on dropbox or elsewhere for later auditing.
+The easiest method for tamper proofing a macbook pro is to paint over one or two of the case screws on the underside of the laptop using a coarse flake glitter nail polish. After the polish is dried take a close up squared photograph of the area, preferably with a ruler in view for size reference. Then use you PGP key to sign the images and store them on dropbox or elsewhere for later auditing.
 
 ![tamper](images/tamper-polish.jpg)
 
@@ -153,7 +153,7 @@ Then install the drivers and GUI applications via `brew cask install <package na
 
 ### Configuration ###
 
-Our primary use-case is for off-line Multi Factor Authentication (MFA) without running a local OTP service -- in case our macbook doesn't have network access. For cloud services we'll assume FIDO U2F compatibility.
+Our primary use-case is for offline Multi Factor Authentication (MFA) without running a local OTP service -- in case our macbook doesn't have network access. For cloud services we'll assume FIDO U2F compatibility.
 
 The Yubikey is also capable of PIV log on for macOS 10.12+, however, we won't be using the feature due to its single factor nature. Instead we'll want to configure the yubikey's PIV slots with our GPG keys and X.509 certs, slot#1 with a static token, slot#2 for HMAC challenge-response, and enroll its FIDO U2F & OTP functionality as needed.
 

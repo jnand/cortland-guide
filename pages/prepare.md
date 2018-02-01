@@ -83,7 +83,7 @@ We'll generate these keyfiles using atmospheric noise from [random.org](https://
 9. Move the files, `❯ mv /Volumes/ramdisk/xa* ~/Secrets/`
 10. Eject the ramdisk and restart to securely remove the working directory
 
-You should now have set of 10 keyfiles in your `~/Secrets` folder for use with composite key inputs. For memorability, rename the keyfiles using codewords of your choice, the [NATO alphabet](https://en.wikipedia.org/wiki/NATO_phonetic_alphabet) works too.
+You should now have set of 10 keyfiles in your `~/Secrets/keyfiles` folder for use with composite key inputs. For memorability, rename the keyfiles using codewords of your choice, the [NATO alphabet](https://en.wikipedia.org/wiki/NATO_phonetic_alphabet) works too. **Note**, because these keyfiles are treated like a [salt](https://goo.gl/rthrnQ) they'll be handled more freely than other secrets.
 
 ---
 

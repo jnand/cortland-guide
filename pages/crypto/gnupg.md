@@ -83,7 +83,7 @@ use-agent
 Master key
 -----------
 
-We'll follow the off-line master-key pattern for creating our keys, while using subkeys for authentication, signing, and encrypting data.
+We'll follow the offline master-key pattern for creating our keys, while using subkeys for authentication, signing, and encrypting data.
 
 `❯ gpg --full-gen-key`
 
@@ -350,7 +350,7 @@ your media become unreadable.  But have some caution:  The print system of
 your machine might store the data and make it available to others!
 ```
 
-There should now be a file in your current directory named `master-revocation-certificate.gpg`, store this in a safe place, **off-line** preferably, adding a copy to your keychain.
+There should now be a file in your current directory named `master-revocation-certificate.gpg`, store this in a safe place, **offline** preferably, adding a copy to your keychain.
 
 
 ?> To revoke your master key, invalidating all its subkeys, import your revocation certificate (`gpg --import rev-cert.gpg`) and then inform the keyserver (`gpg --send <master-key-id>`).
@@ -360,7 +360,7 @@ There should now be a file in your current directory named `master-revocation-ce
 Off-line Master
 ----------------
 
-Now we'll export and remove the master key for safe keeping off-line.
+Now we'll export and remove the master key for safe keeping offline.
 
 ### Verify keys ###
 

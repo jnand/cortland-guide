@@ -253,7 +253,7 @@ ssb>  rsa4096/0xDCCDCA5907863E7D 2018-01-01 [S]
 ssb>  rsa4096/0x7666562DB1D05A07 2018-01-01 [A]
 ```
 
-Notice how the secret subkeys (ssb) now have a `>` next to them; they now exist off-line on the yubikey.
+Notice how the secret subkeys (ssb) now have a `>` next to them; they now exist offline on the yubikey.
 
 #### Require key press ####
 
