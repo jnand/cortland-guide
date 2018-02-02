@@ -7,11 +7,11 @@ Applying cryptographic methods are a crucial part of securing any system, not ju
 
 
 ## [GNU Privacy Guard](pages/crypto/gnupg.md) {hide}
-## [YubiKey](pages/yubikey.md) {hide}
+## [YubiKey](pages/crypto/yubikey.md) {hide}
 ## [Keychain](pages/crypto/keychain-encrypt.md) {hide}
-## [Encrypted Volumes](pages/volumes.md) {hide}
-## [Keybase](pages/keybase.md) {hide}
-## [Open SSH/SSL](pages/ssh.md) {hide}
+## [Encrypted Volumes](pages/crypto/volumes.md) {hide}
+## [Keybase](pages/crypto/keybase.md) {hide}
+## [Open SSH/SSL](pages/crypto/ssh.md) {hide}
 
 
 <div class='center'> 
