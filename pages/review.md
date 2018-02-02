@@ -67,3 +67,22 @@ _Is it designs for a marketing webpage? A business intelligence application?_
     _revision/activity history_
 - [ ] Device remediation / Session management  
     _can you revoke compromised access_
+
+
+### Compromise protocol ###
+
+Based on the features and logs offered by the services in use its good develop a "burn protocol" for revoking permissions and [air-gapping](https://en.wikipedia.org/wiki/Air_gap_(networking)) threats.
+
+
+#### SSH ####
+
+In the case of SSH keys its useful to keep a manifest of hosts using a particular public key, to be revoked in the event of a private key compromise (for those not derived from our yubikey strategy). There is also [Krypton](https://krypt.co/) for managing multiple SSH key pairs, keeping private keys on a mobile device.
+
+
+#### Location tracking ####
+
+If traveling, its good to be aware or remote lock and wipe features.
+
+- Apple's [iCloud](https://support.apple.com/kb/ph2701) erase
+- Backblaze's [Locator](https://www.backblaze.com/lost_computer.html)
+
