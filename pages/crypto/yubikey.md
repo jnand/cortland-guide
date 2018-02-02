@@ -470,3 +470,30 @@ Support includes:
 
 > U2F Security Keys are supported by Google Chrome since version 38 and Opera since version 40. U2F security keys can be used as an additional method of two-step verification on online services that support the U2F protocol, including Google, Dropbox, GitHub, GitLab, Bitbucket, Nextcloud, Facebook and others.
 
+---
+
+Authenticator
+--------------
+
+Yubico also provides an [authenticator app](https://www.yubico.com/support/knowledge-base/categories/articles/yubico-authenticator-download/) for 2FA-TOTP.
+
+If not already installed, `❯ brew install caskroom/drivers/yubico-authenticator`
+
+### Add a new TOTP ###
+
+1. Start the authenticator, `❯ open /Applications/Yubico\ Authenticator.app`
+2. Plug in the yubikey
+3. Open the setup page for the service using TOTP
+4. In the Yubico Authenticator go to **File**, **Scan QR code**  
+    _the authenticator will scan the screen for QR codes and populate an entry_
+    <div style="width: 450px">
+    ![New entry](images/yubico-authenticator-new.png)
+    </div>
+5. The TOTP credentials will now show in the app whenever the yubikey is plugged in.  
+    <div style="width: 450px">
+    ![Authenticator](images/yubico-authenticator-main.png)
+    </div>
+
+
+
+
