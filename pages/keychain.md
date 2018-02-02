@@ -16,6 +16,8 @@ Create a new database using your **Level II** passphrase and one of the previous
 
 ![keepassdb](images/keepass-db.png)
 
+?> For convenience we can store the database in our dropbox folder, and later develop a "burn protocol" for the worst-case scenario of a compromise.
+
 
 Configure
 ---------
