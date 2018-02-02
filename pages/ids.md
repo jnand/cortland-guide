@@ -113,3 +113,26 @@ For advanced use-cases there's [OSSEC](https://ossec.github.io/downloads.html)
 Install, `❯ brew install snort`
 
 ---
+
+Monitoring  
+------------
+
+There a number of builtin tools for monitoring processes, file io, and network activity in macOS.
+
+- View launch daemons, `❯ sudo launchctl list`  
+- List running processes, `❯ ps -ef`
+- View processes resource usage, `❯ open /Applications/Utilities/Activity\ Monitor.app`
+- List open network files, `❯ sudo lsof -Pni`
+- View network activity, `❯ sudo netstat -atln`
+- Watch system logs, `❯ open /Applications/Utilities/Console.app`
+
+
+### Network traffic ###
+
+[Wireshark](https://www.wireshark.org/), can be used to analyze and reconstruct network traffic to help identify unauthorized communications. 
+
+Install, `❯ brew install caskroom/cask/wireshark`
+
+?> If you're new to wireshark, checkout this [<i class="fab fa-youtube fa-lg"></i> intro to the GUI](https://www.youtube.com/watch?list=PLnKJHZhW_BuCPcIg6Ja2boDeHIRwoHMT-&v=U0QABcTD-xc) and logging environment.
+
+
