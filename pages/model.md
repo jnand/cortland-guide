@@ -91,7 +91,7 @@ The risk involved with lost, stolen, or otherwise compromised credentials is hig
 
 #### *Transit* ####
 
-Data in transit is lower risk as many common attack vectors are mitigated by using HTTPS and/or VPN tunneling. Exposed services can be secured via an encrypted channel *e.g* DNS over HTTPS, and identities verified via DNSsec. If data is end-to-end encrypted at the protocol layer, network level re-installation attacks no longer pose immediate threats.
+Data in transit is lower risk, as many common attack vectors are mitigated by using HTTPS and/or VPN tunneling. Exposed services can be secured via an encrypted channel *e.g* DNS over HTTPS, and identities verified via DNSsec. If data is end-to-end encrypted at the protocol layer, network level re-installation attacks no longer pose immediate threats.
 
 #### *Rest* ####
 

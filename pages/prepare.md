@@ -20,12 +20,16 @@ Before setting up a new system we need to decide on a passphrase. We'll use a th
 Level I, will be used for user signin *i.e.* laptop account  
 Level II, is used for our keychain master password *i.e.* keepass  
 Level III, is used when encrypting entire disks *i.e.* Filevault  
-Static Token, is programmed into the yubikey and used as a [pepper](https://en.wikipedia.org/wiki/Pepper_(cryptography)) when needed  
+Static Token, is programmed into the yubikey and used as a [pepper](https://goo.gl/ybPwmF) when needed  
 
-These passphrases won't be used as is, but instead will be paired with a salt and/or pepper as needed. For example, the Level I passphrase will be hashed through a [Yubikey](https://www.yubico.com/) HMAC, without the paired Yubikey the naked passphrase is useless. A Level II login will be hashed with the Yubikey HMAC [pepper](https://goo.gl/ybPwmF) and [salted](https://goo.gl/rthrnQ) with a key file when authenticating our Keepass keychain. And finally any whole disk encryption passphrashes will use the Level III phrase in addition to a user supplied pepper and Yubikey token. 
+These passphrases won't be used as is, but instead will be paired with a salt and/or pepper as needed. For example, the **Level I** passphrase will be hashed through a [Yubikey](https://www.yubico.com/) HMAC, without the paired Yubikey the naked passphrase is useless. A **Level II** login will be hashed with the Yubikey HMAC [pepper](https://goo.gl/ybPwmF) and [salted](https://goo.gl/rthrnQ) with a key file when authenticating our Keepass keychain. And finally any whole disk encryption passphrashes will use the **Level III** phrase in addition to a user supplied pepper and Yubikey token. 
 
 > **Scenario:** *Login to a powered off laptop*  
-FileVaule prompts for disk password. User plugs in yubikey, presses button, yubikey fills static token into field, user enters Level III phrase into same field after yubikey token. Press return, and FileVault successfully authenticates. *Note:* this workflow is necessary since FileVault prompts for a passcode before loading the OS' Yubikey [PAM](https://en.wikipedia.org/wiki/Pluggable_authentication_module) drivers.
+FileVaule prompts for disk password.  
+User plugs in yubikey, presses button, yubikey fills static token into field.  
+User enters **Level III** phrase into same field after yubikey token, pressing return.  
+FileVault successfully authenticates.  
+*Note:* this workflow is necessary since FileVault prompts for a passcode before loading the OS' Yubikey [PAM](https://en.wikipedia.org/wiki/Pluggable_authentication_module) drivers.
 
 
 ?> The motivation behind this strategy is to use the **Level I** password where authentication is needed more frequently, *i.e.* macOS logon, sudo, etc., and **Level II** in combination with a keyfile and Yubikey challenge-response for our Keepass keychain. The **Level III** password is used in combination with a device specific pepper and Yubikey static token for whole volume encryption -- this last part is mostly a workaround for boot time volume decryption that can not load the yubikey drivers for HMAC challenge-response.
@@ -80,7 +84,7 @@ We'll generate these keyfiles using atmospheric noise from [random.org](https://
 6. XOR the files, `❯ python xor.py RandomNumbers PseudoRandomNumbers KeyData`
 7. Base64 encode, `❯ cat KeyData | base64 > KeyData.b64`
 8. Split into keyfiles, `❯ dd if=/Volumes/ramdisk/out.base64 bs=1 count=10240 |  split -b 1024`
-9. Move the files, `❯ mv /Volumes/ramdisk/xa* ~/Secrets/`
+9. Move the files, `❯ mv /Volumes/ramdisk/xa* ~/Secrets/keyfiles/`
 10. Eject the ramdisk and restart to securely remove the working directory
 
 You should now have set of 10 keyfiles in your `~/Secrets/keyfiles` folder for use with composite key inputs. For memorability, rename the keyfiles using codewords of your choice, the [NATO alphabet](https://en.wikipedia.org/wiki/NATO_phonetic_alphabet) works too. **Note**, because these keyfiles are treated like a [salt](https://goo.gl/rthrnQ) they'll be handled more freely than other secrets.
