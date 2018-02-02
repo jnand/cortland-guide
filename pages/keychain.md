@@ -61,3 +61,16 @@ KeePassXC maintains a log of updates made to each entry, this is useful for enfo
 
 ![History](images/keepass-history.png)
 
+
+Burn Protocol
+--------------
+
+If a device with a keepass database is compromised.
+
+1. Move the current kpdb to a secure usb
+2. Permanently delete the dropbox copy, including versions and trash.
+3. Unlink the device from Dropbox
+4. Issue a device remote wipe
+5. Change the keyfile used in the composite
+6. Update kpdb's encryption
+7. Copy new kpdb to Dropbox
