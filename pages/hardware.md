@@ -136,7 +136,7 @@ These feature will be critical in mitigating risks defined in out threat model, 
 
 ### Drivers & Apps ###
 
-Install the following command line tools via `brew install <package name>`
+Install the following command line tools via `❯ brew install <package name>`
 
 - ykman
 - ykpers
@@ -145,7 +145,7 @@ Install the following command line tools via `brew install <package name>`
 - pam_yubico
 - yubico-piv-tool    
 
-Then install the drivers and GUI applications via `brew cask install <package name>`
+Then install the drivers and GUI applications via `❯ brew cask install <package name>`
 
 - yubico-authenticator
 - yubico-yubikey-manager
