@@ -9,4 +9,5 @@
 - [Sandboxing](pages/sandbox.md)
 - [Backup & Recovery](pages/backup.md)
 - [Intrusion detection](pages/ids.md)
+- [Review](pages/review.md)
 - [Congratulations!](pages/references.md)
