@@ -46,7 +46,7 @@ KeePassXC also supports storage of additional attributes and files. This is usef
 
 ![Attributes](images/keepass-attrs.png)
 
-?> <i class="fas fa-lock fa-lg"></i>**+ Security tip:**  
+?> <i class="fas fa-lock"></i>**+ Security tip:**  
 Often times a service will allow you to recover a login via a series of Question and Answer prompts. In these cases its best to generate short random strings or phrases and save the answers as Keepass attributes.<br><br>
 _For example:_ "What is your mothers maiden name?", "WAJ5loMG3lLsfV"  
 _Or if allowed_, a phrase might work better, and be easier to use during over-the-phone challenges  

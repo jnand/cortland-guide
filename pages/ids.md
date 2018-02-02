@@ -4,7 +4,7 @@ Intrusion detection
 
 Aside from patching holes, hardening configuration, and implementing best practices we can apply some proactive measures to ensure rapid threat identification. 
 
-However, its importatn to note:
+However, its important to note:
 
 > Anti-virus programs are a double-edged sword -- not useful for advanced users and will likely increase attack surface against sophisticated threats, however possibly useful for catching "garden variety" malware on novice users' Macs. There is also the additional processing overhead to consider.
 
