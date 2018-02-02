@@ -51,3 +51,5 @@ References
 27. How To Generate Truly Random Bits. [source](http://openfortress.org/cryptodoc/random/)
 28. Python XOR. [source](https://www.megabeets.net/xor-files-python/)
 29. Public/private + symmetric key encryption for backups. [source](https://www.backblaze.com/blog/how-to-make-strong-encryption-easy-to-use/)
+30. Apple sandboxing guide. [source](https://reverse.put.as/wp-content/uploads/2011/09/Apple-Sandbox-Guide-v1.0.pdf)
+
