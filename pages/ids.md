@@ -98,3 +98,18 @@ FROM LSQuarantineEvent
 
 ---
 
+Automated Detection
+--------------------
+
+For advanced use-cases there's [OSSEC](https://ossec.github.io/downloads.html)
+
+> It performs log analysis, integrity checking, rootkit detection, time-based alerting, and active response.
+
+
+### Network ###
+
+[Snort](https://www.snort.org/) is an advanced IDS, capable of actively identify threats and can be configured with various rule sets to take action on suspicious traffic events.
+
+Install, `❯ brew install snort`
+
+---
