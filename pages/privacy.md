@@ -93,7 +93,7 @@ Require user intervention to run flash:
 
 Ensure you have the ability to view SSL cert information:
 
-?> Goto `chrome://flags/#show-cert-link` in a chrome browser, and make sure the option is checked. *Note* this may not be an option in some versions and will be enabled by default.
+?> Goto `chrome://flags/#show-cert-link` in a chrome browser, and make sure the option is checked. *Note* this may not be an option in some versions and will not be enabled by default.
 
 To view a cert click the padlock in the URL bar. This will trigger a dropdown; click the "Valid" link in the Certificate section. 
 
@@ -135,7 +135,7 @@ Be sure to install these plugins:
 
 ### Tracking the trackers ###
 
-To better understand how your information is being shared you can download and install the [Lightbeam](https://www.mozilla.org/en-US/lightbeam/) for Firefox.
+To better understand how your information is being shared you can download and install [Lightbeam](https://www.mozilla.org/en-US/lightbeam/) for Firefox.
 
 > Lightbeam is a Firefox add-on that uses interactive visualizations to show you the first and third party sites you interact with on the Web. As you browse, Lightbeam reveals the full depth of the Web today, including parts that are not transparent to the average user.
 
@@ -298,6 +298,7 @@ For anonymity, using a hosted VPN service should provide sufficient protection a
 - OpenVPN, L2TP/IPsec, PPTP
 
 !> Private internet access's client tends to cause problems with macOS's native firewall, using [tunnelblick](https://tunnelblick.net) may be a better alternative. See the [PIA tunnelblick guide](https://www.privateinternetaccess.com/pages/client-support/osx-openvpn-tunnelblick)
+
 
 ### Proxy ###
 

@@ -2,10 +2,7 @@
 Sandboxing
 ===========
 
-> Sandboxing protects the system by limiting the kinds of operations an application
-can perform, such as opening documents or accessing the network. Sandboxing
-makes it more difficult for a security threat to take advantage of an issue in a
-specific application to affect the greater system.
+> Sandboxing protects the system by limiting the kinds of operations an application can perform, such as opening documents or accessing the network. Sandboxing makes it more difficult for a security threat to take advantage of an issue in a specific application to affect the greater system.
 
 There are few ways to accomplish this
 
@@ -13,9 +10,9 @@ There are few ways to accomplish this
 Native
 -------
 
-Clone the s7ephen's [profile suite](https://github.com/s7ephen/OSX-Sandbox--Seatbelt--Profiles) for examples.
+Clone s7ephen's [profile suite](https://github.com/s7ephen/OSX-Sandbox--Seatbelt--Profiles) for examples.
 
-To run an application within a sandbox,
+To run an application within macOS' `sandbox-exec`,
 
 `❯ sandbox-exec -f profile.sb /Path/To/The/Application/`
 
@@ -46,7 +43,7 @@ Of the three, VMWare Fusion has the best enterprise features for developers.
 In all cases well be using Hashicorp's [Vagrant](https://www.vagrantup.com/) and [Packer](https://www.packer.io/) command-line tools to manage virtual "boxes".
 
 **Packer** can build VMs/images for multiple platforms given one config.  
-**Vagrant** is used to run/manage them locally, some remotes too.
+**Vagrant** is used to run/manage them locally, in some cases remotes too.
 
 Install the tools, 
 
@@ -58,7 +55,7 @@ Install the tools,
 
 ### Resources ###
 
-These resources are a good starting point for creating new sanboxing environments.
+These resources are a good starting point for creating sandbox environments.
 
 Useful templates for packer: <https://github.com/chef/bento>  
 Public available vagrant boxes: <https://app.vagrantup.com/boxes/search>

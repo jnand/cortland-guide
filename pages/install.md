@@ -1,22 +1,20 @@
 Installing macOS
 =================
 
-While installing macOS skip any propmts to configure networking and/or expose 
-serivce outside the localhost. Netwrokign and other serivces should be setup 
+While installing macOS skip any prompts to configure networking and/or expose 
+services outside the localhost. Networking and other services should be setup 
 after configuring the firewall.
 
 
 Full Disk Encryption
 --------------------
 
-After booting up from the installation media prepared in the last step youll be 
-prompted to install the operating system. Before proceeding we want to format the 
-system drive for whole disk encryption. We'll use the encrypted version of APFS
-or HFS+ depending on your distribution.
+After booting the installation media, prepared in the last step, you'll be 
+prompted to install the operating system. Before proceeding, format the system drive for whole disk encryption. We'll use the encrypted version of **APFS** or HFS+ depending on your distribution.
 
-1. Close the OS install propmt window
+1. Close the OS install prompt window
 
-2. Click "Utlities" in the menu bar
+2. Click "Utilities" in the menu bar
 
 3. Select "Disk Utility" from the menu
 ![Disk Utility](https://support.apple.com/library/content/dam/edam/applecare/images/en_US/macos/highsierra/macos-high-sierra-recovery-mode-reinstall.jpg)
@@ -26,27 +24,24 @@ or HFS+ depending on your distribution.
 5. Select an **Encrypted** variant of the options in the **Format** dropdown.
 ![Disk formatting](https://support.apple.com/library/content/dam/edam/applecare/images/en_US/macos/highsierra/macos-high-sierra-disk-utility-erase-internal-drive.png)
 
-    The following prompt will ask for a password and hint. Use the **Level III** passphrase you chose earlier when defining the threat model, skipping the hint. The phrase input should be:
+    The following prompt will ask for a password and hint. Use the **Level III** passphrase you chose earlier, skipping the hint. The phrase input should be:
 
     `"optional user pepper" + "yubikey static token" + "Level III phrase"`
 
-    This pass phras will only be used during a cold start, your used pepper should something easy to remember and unique per device.
+    This passphrase will only be used during a cold start, your pepper should something easy to remember and unique per device.
 
     > **Scenario:** *Cold start login*  
-    FileVault prompts for passcode. User enters *optional pepper*, presses yubikey and enters *static token*, then enters *Level III* pass phrase.
+    FileVault prompts for password. User enters *optional pepper*, presses yubikey and enters *static token*, then enters *Level III* passphrase.
 
-6. Once the system drive has been formatted, exit Disk Utility and proceed with the 
-OS Installer.
+6. Once the system drive has been formatted, exit Disk Utility and proceed with the OS Installer.
 
 
 New mac setup
 --------------
 
-Proceed through the new mac setup, skipping all steps -- we want to defer network
-and other setup until after the firewall is in place.
+Proceed through the new mac setup, skipping steps where allowed -- we want to defer network and other setup until after the firewall is in place.
 
-!> Try to avoid selecting a wireless network, if unavoidable (due to newer activation
-requirements) connect to a secure local/dummy wifi SSID.
+!> Try to avoid selecting a wireless network, if unavoidable (due to newer activation requirements) connect to a secure local/dummy wifi SSID.
 
 ![Select wifi](images/select-wifi.png)
 
@@ -56,7 +51,7 @@ When prompted to create your account, use your **Level I** password, without a h
 
 ![User account](images/create-new-account.png)
 
-!> Moreover, when prompted regarding FilVault and/or login recovery opt to create recovery keys instead of an iCloud reset, and **Do Not** allow any users to "unlock the disk". This will be important later on when we setup Yubikey MFA. Take note of the recovery key for storage in your keepass keychain once setup.
+!> Moreover, when prompted regarding FilVault and/or login recovery opt to create recovery keys instead of an iCloud reset, and **Do Not** allow any users to "unlock the disk". This will be important later when we setup Yubikey MFA. Take note of the recovery key for storage in the keepass keychain later.
 
 Finish Apple's guided setup.
 
@@ -79,15 +74,16 @@ User accounts
 
 You should have already created an `admin` user account during Apple's guided installation. Ideally, the admin account should be left to tasks that require privilege escalation; such as changing system configuration, installing software to `/Applications`, or managing users. Both [Apple](https://help.apple.com/machelp/mac/10.12/index.html#/mh11389) and [NIST CSRC](http://csrc.nist.gov/publications/drafts/800-179/sp800_179_draft.pdf) recommend using a standard account for day-to-day use. This suggestion is an attempt to mitigate the [many vectors opened up](https://bogner.sh/2014/03/another-mac-os-x-sudo-password-bypass/) by `sudo` group privileges.
 
-**Notice.** A `standard` account may cause problems for developers as they don't have access to `sudo`. Still, the use of a standard user account or sandbox VM/Container for non-admin work is recommended to keep application from gaining root access.
+**Notice.** A `standard` account may inconvenience developers, as they don't have access to `sudo`. Still, the use of a standard user account or sandbox VM/Container for non-system work is recommended to keep applications from gaining root access.
 
 For good measure create a standard user account for your day-to-day activities using the `Users & Groups` pane in `System Preferences`, clicking the `+` just below "Login Options".
 
 ![new user](images/new-user.png)
 
+
 ### Configuration ###
 
-Lets harden the account login settings a bit. ** System Preferences**, **Users & Groups**.
+Let's harden the account login settings a bit. ** System Preferences**, **Users & Groups**.
 
 - [ ] Disable automatic login
 - [ ] Disable User list (requite username entry)
@@ -98,6 +94,7 @@ Lets harden the account login settings a bit. ** System Preferences**, **Users &
 Disable Guest account and sharing.
 
 ![Guest account](images/guest-user.png)
+
 
 Firewall
 ---------
@@ -120,11 +117,10 @@ Enable logging:
 Enable stealth mode:  
 `❯ sudo /usr/libexec/ApplicationFirewall/socketfilterfw --setstealthmode on`
 
-
-Set whether built-in signed applications are to automatically receive incoming connections or not.  
+Set whether built-in signed applications automatically receive incoming connections.  
 `❯ sudo /usr/libexec/ApplicationFirewall/socketfilterfw --setallowsigned off`
 
-Set whether downloaded signed applications are to automatically receive incoming connections or not.  
+Set whether downloaded signed applications automatically receive incoming connections.  
 `❯ sudo /usr/libexec/ApplicationFirewall/socketfilterfw --setallowsignedapp off`
 
 
@@ -255,7 +251,7 @@ Try blocking Facebook:
 Software Updates
 -----------------
 
-After installing a verified copy of macOS and configuring the firewall, we should update the OS and system packages. Later we'll install `mas` and `homebrew` to assist with package management.
+After installing a verified copy of macOS and configuring the firewall, update the OS and system packages. Later we'll install `mas` and `homebrew` to assist with package management.
 
 
 ### macOS ###
@@ -300,7 +296,6 @@ Check for outdated apps
 
 ```stdout
 497799835 Xcode (7.0)
-446107677 Screens VNC - Access Your Computer From Anywhere (3.6.7)
 ```
 
 ### Package inventory ###

@@ -3,7 +3,7 @@ Cryptographic methods
 
 Applying cryptographic methods are a crucial part of securing any system, not just data at rest or in transit, but creating strong verifiable proof of identity for authentication and authorization tasks. We'll be taking careful consideration of how encryption integrates into each aspect of our strategy to derisk our threat model; data at rest, in transit, identity proofs, and password storage/generation. 
 
-?> Keep track of all files created in this section, as some files are needed later in the guide for YubiKey integration. Afterwards, we'll securely erase any working data from the system.
+?> Keep track of all files created in this section, as some files are needed later in the guide for YubiKey integration. Afterwards, securely erase any working data from the system.
 
 
 ## [GNU Privacy Guard](pages/crypto/gnupg.md) {hide}

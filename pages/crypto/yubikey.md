@@ -8,7 +8,7 @@ Now that we have our GPG keys, we can move them onto the yubikey, effectively cr
 Loading GPG keys
 ------------------
 
-?> If you need to update a PIN code via the gpg card manager follow the example in the infobox below. Note: the Yubikey PIV tool is the preferred method.
+?> If you need to update a PIN code via the gpg card manager follow the example in the infobox below. **Note:** the Yubikey PIV tool is the preferred method.
 
 ```info
 gpg/card> passwd
@@ -121,7 +121,7 @@ Exit `gpg/card> quit`
 
 ### Move GPG keys ###
 
-Start a gpg session `❯ gpg --edit-key AA78C02FE62BF171`
+Start a gpg session `❯ gpg --edit-key <KEY ID>`, _AA78C02FE62BF171_
 
 ```stdout
 gpg (GnuPG) 2.2.1; Copyright (C) 2017 Free Software Foundation, Inc.
@@ -241,7 +241,7 @@ Enter: "Your selection?", **`3`**, "Authentication key"
 
 #### Confirm changes ####
 
-Check, `❯ gpg -K AA78C02FE62BF171`
+Check, `❯ gpg -K <KEY ID>`, _AA78C02FE62BF171_
 
 ```stdout
 sec#  rsa4096/0xAA78C02FE62BF171 2018-01-01 [SC]
@@ -304,10 +304,10 @@ Open the PIV manager, and start the "Certificates" tool.
 
 Generate certificates or each of the types, exporting a copy for storage in your keychain: 
 
-* [ ] "Authentication"
-* [ ] "Digital Signature"
-* [ ] "Key Management"
-* [ ] "Card Authentication"
+- [ ] "Authentication"
+- [ ] "Digital Signature"
+- [ ] "Key Management"
+- [ ] "Card Authentication"
 
 Each should be **`RSA(2048 bits)`** and **`self-signed`**.
 
@@ -368,7 +368,7 @@ Confirm the challenge token was created.
 !> Before continuing, make sure you have a system backup, these changes can lock you out of your user account. Be sure to have access to your keychain in case you need the firmware password to get into [single-user-mode](https://support.apple.com/en-us/HT201573).
 
 
-To require yubikey when unlocking the screen or waking from sleep add the line 
+To require the yubikey when unlocking the screen or waking from sleep add the line 
 
 ```config
 auth required /usr/local/lib/security/pam_yubico.so mode=challenge-response

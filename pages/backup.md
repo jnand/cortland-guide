@@ -8,12 +8,12 @@ With our system now encrypted we need to maintain a secure and auditable backup.
 Cloud Backup
 ------------
 
-Our main requirements are :
+Our main requirements are:
 
 - [ ] **Resilience**  
     _We'd like to either have access to multiple separate copies, or have the host provide some kind of fault tolerance_
 - [ ] **Encryption**  
-    _Data should be encrypted client-side and send to cloud storage_
+    _Data should be encrypted client-side then sent to cloud storage_
 - [ ] **Two factor auth**  
     _The service should offer a second factor option_
 - [ ] **Versioning**  
@@ -21,10 +21,10 @@ Our main requirements are :
 - [ ] **Cost**  
     _Pricing should be relatively cheap, for upwards of >1TB_
 - [ ] **Continuous backup**  
-    _The solution should listen to system file change events and batch upload data as needed vs a scheduled backup strategy_
+    _The solution should listen to file change events and batch upload data as needed vs a scheduled backup strategy_
 
 
-After considering a few solutions, [Backblaze](https://www.backblaze.com/cloud-backup.html), is our choice given its feature set, price, unlimited storage, and ease of use. Alternatively, for a more secure but size priced service look into [Tarsnap](https://www.tarsnap.com/). 
+After considering a few solutions, [Backblaze](https://www.backblaze.com/cloud-backup.html#af9pux), is our choice given its feature set, price, unlimited storage, and ease of use. Alternatively, for a more secure but size priced service look into [Tarsnap](https://www.tarsnap.com/). 
 
 ### Backblaze ###
 
@@ -36,7 +36,7 @@ Backblaze will install a **System Preferences** pane,
 
 It defaults to continuously backup your system, automatically throttling cpu and bandwidth as needed (this is adjustable if performance becomes an issue).
 
-!> Click the **Settings** button in the backblaze pane, got to **Security**, and click **"Enter Your Private Encryption Key"**. Use KeePassXC to generate a secure key.
+!> Click the **Settings** button in the backblaze pane, go to **Security**, and click **"Enter Your Private Encryption Key"**. Use KeePassXC to generate a secure key.
 
 <div class="center" style="width: 600px">
 ![Backblze encryption](images/backblaze-encrypt.png)
@@ -45,7 +45,7 @@ It defaults to continuously backup your system, automatically throttling cpu and
 
 #### Two factor auth ####
 
-> When you log in to your [Backblaze](https://secure.backblaze.com/user_signin.htm) account, on the left-hand side go to “My Settings”, and navigate towards the middle of the page where you will see your “Sign-In Settings”, click on that to make the change.
+> When you log in to [Backblaze](https://secure.backblaze.com/user_signin.htm), on the left-hand side go to “My Settings”, and navigate towards the middle of the page where you will see “Sign-In Settings”, click to change.
 
 ![Backblaze account settings](images/backblaze-ToTP_SignIn.png)
 
@@ -53,18 +53,18 @@ Enter your phone number to enable two-factor,
 
 ![2FA phone number](images/backblaze-ToTP_PhoneVerification.png)
 
-Register your Authenitcator App,
+Register your Authenticator App,
 
 ![Finish 2FA setup](images/backblaze-ToTP_Verify.png)
 
 
 ### Dropbox ###
 
-For shared documents and files dropbox is great, and after creating a cryptomator vault, should be secure method for keeping multiple copies of important files across systems. Dropbox also keeps versioned copies, which can be rolled-back for revision control. However if you need [zero knowledge encryption](https://tresorit.com/blog/zero-knowledge-encryption/) look at [SpiderOak](https://spideroak.com/) or [tresorit](https://tresorit.com/).
+For shared documents and files dropbox is great, and after creating a cryptomator vault, should be secure, also keeping multiple copies of important files across systems. Dropbox also keeps versioned copies, which can be rolled-back for revision control. However, if you need [zero knowledge encryption](https://tresorit.com/blog/zero-knowledge-encryption/) see [SpiderOak](https://spideroak.com/) or [tresorit](https://tresorit.com/).
 
 #### Cryptomator ####
 
-If you setup cyptomator in the [Encrypted Volumes](pages/crypto/volumes?id=cryptomator) section, your Dropbox backed vaults should be obfuscated when unmounted.
+If you setup cyptomator during the [Encrypted Volumes](pages/crypto/volumes?id=cryptomator) section, your Dropbox backed vaults should be obfuscated if viewed "unmounted".
 
 ![Dropbox cryptomator vault](images/dropbox-cryptomator.png)
 
@@ -73,7 +73,7 @@ If you setup cyptomator in the [Encrypted Volumes](pages/crypto/volumes?id=crypt
 
 Dropbox supports U2F, and can use the yubikey as a second factor. 
 
-[Enable 2FA](https://www.dropbox.com/help/security/enable-two-step-verification/#enable)
+##### [Enable 2FA](https://www.dropbox.com/help/security/enable-two-step-verification/#enable) #####
 
 1. [Sign in](https://www.dropbox.com/login) to dropbox.com.
 2. Click your avatar.
@@ -119,13 +119,13 @@ Check these paths for files to move:
 - [ ] **public-key.gpg**, **private-key.gpg**, **private-subkeys.gpg**  
     _ASCII format GnuPG keyfile exports from earlier_
 - [ ] **keyfiles**. 
-    _these are 10 1kb keyfiles generated during prep_
+    _these are 10 1kb keyfiles generated during install prep_
 - [ ] **~/.ssh/*.pub**  
     _public keys_
 - [ ] **~/.ssh/*.priv**  
     _private keys_
 - [ ] **~/.ssh/host.config**  
-    _host specific ssh configs, `included` in the main config_
+    _any host specific ssh configs, `included` in the main config_
 - [ ] **~/.gnupg/private-keys*/***  
     _private keys_
 - [ ] **~/.gnupg/pubring.***  
@@ -137,7 +137,7 @@ Check these paths for files to move:
 - [ ] **yubikey slot 2 challenge-response HMAC-SHA1 secret**  
     _in case you need to recover your yubikey config without access to your keychain_.  
     - save your secret to a text file, `yubikey-slot2.txt`.
-    - encrypt with **Level I** or a new password, `❯ gpg --symmetric yubikey-slot2.txt`
+    - encrypt with **Level III** or a new password, `❯ gpg --symmetric yubikey-slot2.txt`
     - destroy `yubikey-slot2.txt`  
     _note this will again be encrypted by kebase/veracrypt_
 
@@ -164,7 +164,7 @@ Using the veracrypt wizard create a small volume, ~100MB. You can use a hidden v
 Restoring Secrets
 ------------------
 
-Restoring `~/Secrets` should only be matter of cloning the keybase repo or unlocking and extracting the veracypt volume and symlinking the appropriate paths.
+Restoring `~/Secrets` should be matter of cloning the keybase repo or unlocking and extracting the veracypt volume and symlinking the appropriate paths.
 
 ### Keepass db ###
 

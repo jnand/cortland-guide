@@ -2,7 +2,7 @@
 Keychain
 =========
 
-Proper management of credentials is the cornerstone of a secure system. For this reason we'll migrate away from macOS's builtin keychain for all but trivial logins. There are many password management solutions available, most of them cloud offerings; however, this guide aims to keep critical assets under our control to as much extent as possible.
+Proper management of credentials is the cornerstone of a secure system. For this reason we'll migrate away from macOS's built-in keychain for all but trivial logins. There are many password management solutions available, most of them cloud offerings; however, this guide aims to keep critical assets under our control to as much extent as possible.
 
 We'll be using the open source [KeePassXC](https://keepassxc.org/) client to manage our passwords, syncing them via Dropbox.
 
@@ -36,7 +36,7 @@ Passwords
 
 !> Best practice is to use a unique high-entropy password for each new login. Typically 32 or 64 characters in length, as maximally allowed by each service.
 
-![Passgen](images/keepass-gen.png)
+![Pass gen](images/keepass-gen.png)
 
 ?> Remember to save all future credentials in your keepass database.
 

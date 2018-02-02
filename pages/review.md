@@ -2,7 +2,7 @@
 Review
 =======
 
-After working through the major section the threat model should now be acceptably derisked -- _there are always unknown side-channels to be reconsidered_.
+After working through each of the major sections, the threat model should now be _acceptably derisked_ -- _there are always unknown side-channels to consider_.
 
 
 Closing details
@@ -30,7 +30,7 @@ When this is enabled, the operating system will prevent other programs running o
 Cloud services
 ---------------
 
-Remember to check popular cloud services you may be using, and follow best practices during use. 
+Remember to check any cloud services you may have, and follow best practices during use. 
 
 !> Most importantly, consider what data is being placed with a given provider, the security measures in place to mitigate risks, and if its compromise is within acceptable risk.  
 **Scenario:** is a breached google doc with client design specifications acceptable?  
@@ -62,7 +62,7 @@ _Is it designs for a marketing webpage? A business intelligence application?_
 - [ ] Recovery policy  
     _do they use common challenge questions, "mothers maiden name"_
 - [ ] Zero knowledge encryption  
-    _if not will cryptomator work_
+    _if not, will cryptomator suffice_
 - [ ] Audit logging  
     _revision/activity history_
 - [ ] Device remediation / Session management  
@@ -81,8 +81,8 @@ In the case of SSH keys its useful to keep a manifest of hosts using a particula
 
 #### Location tracking ####
 
-If traveling, its good to be aware or remote lock and wipe features.
+If traveling, its good to be aware of remote lock and wipe features.
 
 - Apple's [iCloud](https://support.apple.com/kb/ph2701) erase
-- Backblaze's [Locator](https://www.backblaze.com/lost_computer.html)
+- Backblaze's [locater](https://www.backblaze.com/lost_computer.html)
 

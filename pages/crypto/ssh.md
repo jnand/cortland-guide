@@ -2,12 +2,12 @@
 Open SSH/SSL
 =============
 
-Most day-to-day use will only need a `ssh` client and the server should remain disabled; however, the default `sshd` permissions allow any user in the _admin_ group to connect, and should be hardened a bit should the need to enable it arise.
+Most day-to-day use will only need a `ssh` client; the server should remain disabled. If the need to enable `sshd` arises, the default permissions should be hardened a bit, as they allow any user in the _admin_ group to connect.
 
 SSH
 ----
 
-To mitigate propagation of an account compromise enable obfuscation of your known_hosts list.
+To mitigate propagation of an account compromise, enable obfuscation of your known_hosts list.
 
 Ensure *ssh_config* contains the directives below, `❯ sudo vim /etc/ssh/ssh_config`
 

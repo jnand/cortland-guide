@@ -83,7 +83,7 @@ use-agent
 Master key
 -----------
 
-We'll follow the offline master-key pattern for creating our keys, while using subkeys for authentication, signing, and encrypting data.
+We'll follow the offline master-key pattern for creating our keys while using subkeys for authentication, signing, and encrypting data.
 
 `❯ gpg --full-gen-key`
 
@@ -162,7 +162,7 @@ sub   rsa4096 2018-01-01 [E]
 
 ### Add picture ###
 
-Adding a picture is optional, though it increase the legitimacy of your signature as a proof of identity.
+Adding a picture is optional, though it increases the legitimacy of your signature as a proof of identity.
 
 `❯ gpg --edit-key E2DCD9A862D89D4C1D915469AA78C02FE62BF171`
 
@@ -267,9 +267,9 @@ Repeat the key generation steps, but this time for a **signing only**, **`[S]`**
 At each prompt supply the appropriate configuration:
 
 1. `gpg> addkey`
-2. "Please select what kind of key you want" **`:RSA (sign only)`**
-3. "What keysize do you want?" **`4096`**
-4. "Please specify how long the key should be valid." **`never expires`**
+2. "Please select what kind of key you want", **`:RSA (sign only)`**
+3. "What keysize do you want?", **`4096`**
+4. "Please specify how long the key should be valid.", **`never expires`**
 5. Skip/blank password
 6. `gpg> save`
 
@@ -285,7 +285,7 @@ Repeat the key generation steps, but this time for an **authentication only**, *
 At each prompt supply the appropriate configuration:
 
 1. `gpg> addkey`
-2. ... "kind of key you want" **`(8) RSA (set your own capabilities)`**
+2. ... "kind of key you want", **`(8) RSA (set your own capabilities)`**
 
     ```bash
     Possible actions for a RSA key: Sign Encrypt Authenticate 
@@ -310,7 +310,7 @@ At each prompt supply the appropriate configuration:
 Revocation certificate
 -----------------------
 
-In the unfortunate event your master key is compromised, youll want to alert the key servers as soon as possible, to do this you'll need a revocation certificate.
+In the unfortunate event your master key is compromised, you'll want to alert the key servers as soon as possible, to do this you'll need a revocation certificate.
 
 `❯ gpg --output master-revocation-certificate.gpg --gen-revoke AA78C02FE62BF171`
 
@@ -350,7 +350,7 @@ your media become unreadable.  But have some caution:  The print system of
 your machine might store the data and make it available to others!
 ```
 
-There should now be a file in your current directory named `master-revocation-certificate.gpg`, store this in a safe place, **offline** preferably, adding a copy to your keychain.
+There should now be a file in your current directory named `master-revocation-certificate.gpg`, store this in a safe place, **offline** preferably, adding a copy to your keepass keychain.
 
 
 ?> To revoke your master key, invalidating all its subkeys, import your revocation certificate (`gpg --import rev-cert.gpg`) and then inform the keyserver (`gpg --send <master-key-id>`).
@@ -398,7 +398,7 @@ Create a portable backup of our private keys.
 
 ### Export subkeys ###
 
-Export only our private subkeys in preparation to evict the private master key.
+Export only your private subkeys in preparation to evict the private master key.
 
 `❯ gpg --export-secret-subkeys --armor AA78C02FE62BF171 > private-subkeys.gpg`
 
@@ -433,7 +433,7 @@ ssb>  rsa4096/0x7666562DB1D05A07 2018-01-01 [A]
 You should see **`sec#`** indicating the Master key has no secret present.
 
 
-!> Any exported keyfiles should be securely stored and erased form the working directory. Keeping a copy in your keychain is a good practice. Later we'll cover secure backups and key recovery.
+!> Any exported keyfiles should be securely stored and erased form the working directory. Keeping a copy in your keepass keychain is a good practice. Later we'll cover secure backups and key recovery.
 
 ### Test run ###
 

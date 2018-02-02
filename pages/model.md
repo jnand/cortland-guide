@@ -1,3 +1,4 @@
+
 Threat model
 ==============
 
@@ -9,48 +10,34 @@ that are adversarial in nature. The level of sensitivity of client information m
 
 ### Trust boundaries ###
 
-**Hardware.** The laptop will be used remotely from various locations. Public exposure
-is likely during travel and off-site work. Therefore, the endpoint should be secured
-in case of third party access and/or theft.
+**Hardware.** The laptop will be used remotely from various locations. Public exposure is likely during travel and off-site work. Therefore, the endpoint should be secured in case of third party access and/or theft.
 
-**Networking.** All access to and from external resources will be controlled at both the
-packet level and application layer. Communication between project containers is tightly
-controlled. Moreover, external access by containers will be virtually "NATed" to the host.
+**Networking.** All access to and from external resources will be controlled at both the packet level and application layer. Communication between project containers is tightly controlled. Moreover, external access by containers will be virtually "NATed" to the host.
 
-**Virtualization.** Client projects will exist on the same system-drive and will need 
-to be run in isolation from one another during development. Containers should be encrypted
-and run exclusively. No client projects will be readable by the host system while at rest.
+**Virtualization.** Client projects will exist on the same system-drive and will need to be run in isolation from one another during development. Containers should be encrypted and run exclusively. No client projects will be readable by the host system while at rest.
 
-**Internal.** Trust boundaries will exist between all projects; common services and 
-architecture will be duplicated as needed. On hand-off the containers will be passed 
-to the client for review and are subject to their sysadmin's security policies.
+**Internal.** Trust boundaries will exist between all projects; common services and architecture will be duplicated as needed. On hand-off the containers will be passed to the client for review and are subject to their sysadmin's security policies.
 
 
 ### Actors ###
 
-**Primary.** The only actor here is the system user. External actors are beyond the scope of this document. Projects deployed for client testing, review, or production will not 
-happen on this host.
+**Primary.** The only actor here is the system user. External actors are beyond the scope of this document. Projects deployed for client testing, review, or production will not happen on this host.
 
-**Client.** End users will interact with their respective projects on a third party host, 
-secured under a separate model. 
+**Client.** End users will interact with their respective projects on a third party host, secured under a separate model. 
 
-**Recovery.** Backup services will store endpoint encrypted data at rest, transported to 
-their facility via VPN/TLS+SSL or other secure channel.
+**Recovery.** Backup services will store endpoint encrypted data at rest, transported to their facility via VPN/TLS+SSL or other secure channel.
 
 
 ### Information flows ###
 
-**Authentication.** The firmware, system drive encryption, OS logon, OS services, 
-and keychain all require a valid user to access protected data. User identity is 
-maintained through a set of off-system PGP keys.
+**Authentication.** The firmware, system drive encryption, OS logon, OS services, and keychain all require a valid user to access protected data. User identity is maintained through a set of off-system PGP keys.
 
 **Transit.** Data in transit will include web traffic, chat communication,
 cloud services, remote VPN, and directory lookups.
 
-**Rest.** Data not in use falls into categories of: host system files/documents, client files, software projects, backup and recovery. Whole drive images will **not** be kept.
+**Rest.** Data not in use falls into categories of: host system files/documents, client files, software projects, backups and recovery. Whole drive images will **not** be kept.
 
-**Processing.** Runtime data is confined to the host system, where any external access is 
-controlled through the virtualization layer's NAT and host OS firewall.
+**Processing.** Runtime data is confined to the host system, where any external access is controlled through the virtualization layer's NAT and host OS firewall.
 
 
 ### Threat agents ###
@@ -70,16 +57,14 @@ malware payloads.
 > A skilled attacker with unsupervised physical access to your computer can infect the boot ROM to install a keylogger and steal your password - see [Thunderstrike](https://trmm.net/Thunderstrike), for example.
 
 
-*Authentication.* Over-the-shoulder skimming, weak passwords, password reuse, key 
-theft, single-user-mode side channel attacks. 
+*Authentication.* Over-the-shoulder skimming, weak passwords, password reuse, key theft, single-user-mode side channel attacks. 
 
 *Transit.* Man-in-the-middle attacks, Identity spoofing, DNS cache poisoning,
 Wifi Key re-installation attacks.
 
 *Rest.* Decryption, data-corruption, key-theft.
 
-*Processing.* Code injection, privilege escalation, persistent threat installation,
-end-user data leaks.
+*Processing.* Code injection, privilege escalation, persistent threat installation, end-user data leaks.
 
 
 ### Assessment ###

@@ -95,18 +95,15 @@ Get the installer
 -----------------
 
 The preferred method of downloading the macOS installer is via the Mac App Store.
-However, if you're using a previously removed distribution, be sure to pay special
-attention to the section on verifying the authenticity of installer.
+However, if you're using a previously removed distribution, be sure to pay special attention to the section on verifying the authenticity of installer.
 
 ?> *Ensure you have the most current version and build of your particular os, 
 checking the tables on Apple's guide:*  
 [How to find the macOS version number on your Mac](https://support.apple.com/en-us/HT201260)
 
-
 > From the Apple () menu in the corner of your screen, choose About This Mac. 
 The version of your operating system appears beneath “macOS” or “OS X” in the 
-window that opens. If you need to know the build, click the version. This example 
-shows macOS High Sierra version 10.13, build 17A365:
+window that opens. If you need to know the build, click the version. This example shows macOS High Sierra version 10.13, build 17A365:
 
 ![About this mac](https://support.apple.com/library/content/dam/edam/applecare/images/en_US/macos/macos-high-sierra-about-this-mac-overview-version-build.jpg)
 
@@ -159,7 +156,7 @@ Package "Install macOS High Sierra.app":
 
 ### View signature details ###
 
-Note anything out of the ordinary
+Examine for anything out of the ordinary.
 
 `❯ codesign --display --deep --verbose=2  Install\ macOS\ High\ Sierra.app`
 
@@ -226,7 +223,7 @@ Install macOS High Sierra.app: satisfies its Designated Requirement
 ### Social proof ###
 
 Do the SHA1 and/or SHA256 checksums match those calculated by others? The table 
-below is an aggregated of the hashes maintained by:
+below is an aggregate of the hashes maintained by:
 
 1. [macOS checksums.](https://github.com/notpeter/apple-installer-checksums/blob/master/readme.md)
 2. [macOS SHA256.](https://github.com/drduh/macOS-Security-and-Privacy-Guide/blob/master/InstallESD_Hashes.csv)
@@ -317,9 +314,7 @@ Using a clean, formatted usb drive, create a bootable installation volume.
 
 See [Apple's guide](https://support.apple.com/en-us/HT201372) for additional details.
 
-> After downloading the installer, mount the USB flash drive or other volume that 
-you're using for the bootable installer. Make sure that it has at least 12GB of 
-available storage.
+> After downloading the installer, mount the USB flash drive or other volume that you're using for the bootable installer. Make sure that it has at least 12GB of available storage.
 
 ```bash
 ❯ cd /Applications/Install\ macOS\ High\ Sierra.app/Contents/Resources

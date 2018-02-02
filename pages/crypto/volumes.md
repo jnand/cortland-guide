@@ -2,12 +2,12 @@
 Encrypted volumes
 ==================
 
-Encrypting data at rest is essential to resolving many of the security issues discussed in our model. Our strategy will be layered, so that sensitive data can be protected both locally and and in the cloud.
+Encrypting data at rest is essential to resolving many of the security issues discussed in our model. Our strategy will be layered, so that sensitive data can be protected both locally and in the cloud.
 
 FileVault
 ---------
 
-For this guide FileVault uses an install time provided key for encryption, our **Level III** passphrase. It uses the AES-XTS mode of AES with 128 bit blocks and a 256 bit key to encrypt the disk, as recommended by NIST. This mode of operation is described by Apple as _Disk Password-based DEK_
+For this guide FileVault uses an install time provided key for encryption, our **Level III** passphrase. It uses the XTS mode of AES with 128 bit blocks and a 256 bit key to encrypt the disk, as recommended by NIST. This mode of operation is described by Apple as _Disk Password-based DEK_
 
 - there is a passphrase for the volume
 - the clean system will immediately behave as if FileVault was enabled after installation
@@ -25,12 +25,12 @@ FileVault is On.
 
 Enable it if needed, `❯ sudo fdesetup enable`.
 
-?> If youre ssh'ed into a machine with FileVault, and need to restart, you can use `❯ sudo fdesetup authrestart` to reboot and unlock the disk with the current FVKey.
+?> If you're ssh'ed into a machine with FileVault, and need to restart, you can use `❯ sudo fdesetup authrestart` to reboot and unlock the disk with the current FVKey.
 
 
 ### Mounting non system volumes ###
 
-If you have external FileVault drives attached to remote system, or need to script the ability to mount, use `[diskutil](http://www.applegazette.com/mac/pro-terminal-commands-using-diskutil/)`.
+If you have external FileVault drives attached to a remote system, or need to script the ability to mount, use `[diskutil](http://www.applegazette.com/mac/pro-terminal-commands-using-diskutil/)`.
 
 Find the Logical Volume UUID,  `❯ diskutil list`
 
@@ -54,7 +54,7 @@ Offline
                                  Locked Encrypted
 ```
 
-Unlock the volume, `❯ diskutil coreStorage unlockVolume <UUID>`, `AB38F577-085B-4CE5-8F14-F608A47CBF54`
+Unlock the volume, `❯ diskutil coreStorage unlockVolume <UUID>`, _AB38F577-085B-4CE5-8F14-F608A47CBF54_
 
 ```stdout
 Started CoreStorage operation
@@ -65,7 +65,7 @@ Core Storage disk: disk5
 Finished CoreStorage operation
 ```
 
-Mount the disk, `❯ diskutil mount diskN`, `disk5`
+Mount the disk, `❯ diskutil mount <diskN>`, _disk5_
 
 ```stdout
 Volume jnand-hdd on disk5 mounted
@@ -81,11 +81,11 @@ Install VeraCrypt, `❯ brew install caskroom/cask/veracrypt`.
 
 ![VeraCrypt](images/veracrypt-main.png)
 
-VeraCrypt has a wizard to help with the creation of new volumes.
+VeraCrypt has a wizard to help with creating new volumes.
 
 ![Hidden volume](images/veracrypt-wizard.png)
 
-?> VeraCrypt supports plausible deniability by allowing a single "hidden volume" to be created within another volume. In addition, the Windows versions of VeraCrypt have the ability to create and run a hidden encrypted operating system whose existence may be denied.
+?> VeraCrypt supports plausible deniability by allowing a single "hidden volume" to be created within another volume.
 
 In this mode VeraCrypt will create two encryptions schemes with two different keys. In the event you're compelled to decrypt the volume you can supply the primary key. If **[properly maintained](https://www.veracrypt.fr/en/Security%20Requirements%20for%20Hidden%20Volumes.html)** the hidden second volume will appear as random empty space within the first.
 
@@ -100,7 +100,7 @@ Cryptomator
 
 Install with homebrew, `❯ brew install caskroom/cask/cryptomator`
 
-![cryptomator](images/cryptomator.png)
+![Cryptomator](images/cryptomator.png)
 
 When unlocked, Cryptomator provides a virtual hard drive through which you can access your files, encrypting files client side via AES-XTS.
 
@@ -108,11 +108,11 @@ When unlocked, Cryptomator provides a virtual hard drive through which you can a
 Virtual machines
 -----------------
 
-Both VirtualBox and VMware Fusion support encrypting vm disks. This is important when the client work is isolated in a VM contains sensitive data, and should be secured separately from the host system's disk encryption.
+Both VirtualBox and VMware Fusion support encrypting VM disks. This is important when the client work is isolated in a VM contains sensitive data, and should be secured separately from the host system's disk encryption.
 
 ### VirtualBox ###
 
-Encryption can be set from by selecting the vm image in the manager, and opening its settings pane.
+Encryption can be set by selecting the VM image in the manager, and opening its settings pane.
 
 <div class="center" style="width: 600px">
     ![vbox settings](images/virtualbox-encryption.png)
@@ -120,7 +120,7 @@ Encryption can be set from by selecting the vm image in the manager, and opening
 
 ### VMWare Fusion ###
 
-In Fusion, encryption has its own prefrences pane, accessible through the vm images settings.
+In Fusion, encryption has its own preferences pane, accessible through the VM images settings.
 
 <div class="center" style="width: 600px">
     ![vmware settings](images/vmware-settings.png)

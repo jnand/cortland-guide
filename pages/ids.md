@@ -14,9 +14,9 @@ Regardless, we'll utilize the free [Sophos Home](https://home.sophos.com/) anti-
 Anti-malware
 --------------
 
-Sophos provides a free a robust anti-malware solution thats updated frequently, and both free and low-weight on system resources. [Sophos Home](https://home.sophos.com/) is downloaded directly from the vendor and installed as an endpoint client, its management is done largely though a cloud dashboard.
+Sophos provides a free and robust anti-malware solution that's updated frequently, and light on system resources. [Sophos Home](https://home.sophos.com/) is downloaded directly from the vendor and installed as an endpoint client, its management is done largely though a cloud dashboard.
 
-!> Unfortunately macOS continues to top the list of software with the most [critical vulnerability](https://www.cvedetails.com/product/156/Apple-Mac-Os-X.html?vendor_id=49), creating a constantly changing attack surface for existing malware
+!> Unfortunately macOS continues to top the list of software with the most [critical vulnerability](https://www.cvedetails.com/product/156/Apple-Mac-Os-X.html?vendor_id=49), creating a constantly changing exploitable attack surface for new and existing malware.
 
 ![Sophos dashboard](images/sophos-dash.png)
 
@@ -25,7 +25,7 @@ Sophos provides a free a robust anti-malware solution thats updated frequently, 
 System Integrity Protection
 ----------------------------
 
-Ensure Apple's SIP is enabled,  `❯ csrutil status`
+Ensure Apple's SIP is enabled, `❯ csrutil status`
 
 ```stdout
 System Integrity Protection status: enabled.
@@ -34,7 +34,7 @@ System Integrity Protection status: enabled.
 If not, reboot into recovery mode:
 
 1. Restart.
-2. Hold down CMD + R during reboot to enter Recovery Mode.
+2. Hold down **`CMD`** + **`R`** during reboot to enter Recovery Mode.
 3. Click on the Utilities Menu.
 4. Launch Terminal.
 5. Type in `❯ csrutil enable`
@@ -45,7 +45,7 @@ If not, reboot into recovery mode:
 Objective-See tools
 ---------------------
 
-This collection of tools was developed by security researcher [Patrick Wardle](https://objective-see.com/index.html), and offers a great addition to our threat mitigation strategy. Many of Patrick Wardle's tools are integrate [VirusTotal](https://www.virustotal.com/#/home/upload) for updated threat signatures.
+This collection of tools was developed by security researcher [Patrick Wardle](https://objective-see.com/index.html), and offers a great addition to our threat mitigation strategy. Many of Patrick Wardle's tools integrate [VirusTotal](https://www.virustotal.com/#/home/upload) for detecting current threat signatures.
 
 Each of these tools can be installed via `❯ brew cask install <package_name>`
 
@@ -72,7 +72,7 @@ Executable whitelisting/blacklisting
 
 ### Gatekeeper ###
 
-macOS has a builtin system for allowing/blocking application from executing, and does so based on its code signature; unsigned applications will raise a notice and be disallowed unless explicitly allowed.
+macOS has a built-in system for allowing/blocking applications from executing, and does so based on its code signature; unsigned applications will raise a notice and be disallowed unless explicitly authorized.
 
 Gatekeeper's Quarantine also keeps track of downloaded files, which can be viewed by querying the sqlite database:
 
@@ -108,7 +108,7 @@ For advanced use-cases there's [OSSEC](https://ossec.github.io/downloads.html)
 
 ### Network ###
 
-[Snort](https://www.snort.org/) is an advanced IDS, capable of actively identify threats and can be configured with various rule sets to take action on suspicious traffic events.
+[Snort](https://www.snort.org/) is an advanced IDS, capable of actively identifying threats, and can be configured with various rule sets to take action on suspicious traffic/events.
 
 Install, `❯ brew install snort`
 
@@ -117,7 +117,7 @@ Install, `❯ brew install snort`
 Monitoring  
 ------------
 
-There a number of builtin tools for monitoring processes, file io, and network activity in macOS.
+There are a number of built-in tools for monitoring processes, file io, and network activity in macOS.
 
 - View launch daemons, `❯ sudo launchctl list`  
 - List running processes, `❯ ps -ef`

@@ -6,7 +6,7 @@ The unibody design of the macbook pro makes tamper proofing much easier than mor
 Tamper evident 
 --------------
 
-The easiest method for tamper proofing a macbook pro is to paint over one or two of the case screws on the underside of the laptop using a coarse flake glitter nail polish. After the polish is dried take a close up squared photograph of the area, preferably with a ruler in view for size reference. Then use you PGP key to sign the images and store them on dropbox or elsewhere for later auditing.
+The easiest method for tamper proofing a macbook pro is to paint over one or two of the case screws on the underside of the laptop using a coarse flake glitter nail polish. After the polish is dried, take a squared close up photograph of the area, preferably with a ruler in view for size reference. Then use your PGP key to sign the images and store them on dropbox or elsewhere for later auditing.
 
 ![tamper](images/tamper-polish.jpg)
 
@@ -21,9 +21,9 @@ To audit the seal, simply take a new photo with a ruler in frame and open the be
 Firmware
 ---------
 
-At this point any firmware updates that were bundled with OS updates should have been applied. Lets double check and verify everything is ok, as [some EFI updates fail to be applied](https://duo.com/blog/the-apple-of-your-efi-mac-firmware-security-research), then lock down the firmware.
+At this point any firmware updates that were bundled with OS updates should have been applied. Let's double check and verify everything is ok, as [some EFI updates fail to be applied](https://duo.com/blog/the-apple-of-your-efi-mac-firmware-security-research), then lock down the firmware.
 
-!> Password protecting the firmware is a critical mitigation at this point, so future packages can't easily modify the system without authentication.
+!> Password protecting the firmware is a critical mitigation at this point, so future packages can't easily modify the system without authorization.
 
 
 ### Check EFI ###
@@ -76,11 +76,11 @@ Enter password:
 Standby, Sleep, & Hibernate
 ---------------------------
 
-To take full advantage of FileVault, we'll need to configure the system power settings to evict our key on standby. Evicting the FileVault key ensures the drive is protected by its encryption scheme, if left unattended.
+To take full advantage of FileVault, we'll need to configure the system power settings to evict our key on standby. Evicting the FileVault key ensures the drive is protected by its encryption scheme if left unattended.
 
 ### Energy settings ###
 
-?> The following configuration allows the system to sleep the display and drives after a specified idle time, prompting the user for a password or touchID on wake to re-enter the session. If the lid is closed the system will hibernate after 60 seconds, evicting the FV-key; when the user wakes the system they'll be prompted for the disk password, then greeted with the user login screen, which may or may not allow touchID depending on how much time has passed in hibernation.
+?> The following configuration allows the system to sleep the display and drives after a specified idle time, prompting the user for a password or touchID on wake to re-enter the session. If the lid is closed the system will hibernate after 60 seconds, evicting the FVkey; when the user wakes the system they'll be prompted for the disk password, then greeted with the user login screen, which may or may not allow touchID depending on how much time has passed in hibernation.
 
 ```bash
 ❯ sudo pmset -a destroyfvkeyonstandby      1
@@ -101,12 +101,12 @@ To take full advantage of FileVault, we'll need to configure the system power se
 
 In addition to the lid close event, which triggers FVkey eviction in 60 seconds, we can add other quick actions to put the system in a locked state.
 
-Adding a sleep option to the touch bar is one. From **System Preferences**, **Keyboard**, **Customize Control Strip**, drag the "lock" and "sleep" buttons to the touch bar.
+Adding a sleep option to the touch bar: from **System Preferences**, **Keyboard**, **Customize Control Strip**, drag the "lock" and "sleep" buttons to the touch bar.
 
 ![sleep icon](images/touch-bar.png)
 
 
-Next, set one of the hotcorners to immediately put the display to sleep, requiring user auth on wake.
+Next, set one of the hot-corners to immediately put the display to sleep, requiring user auth on wake.
 
 Set hot-corner:
 
@@ -131,7 +131,7 @@ This guide will assume we are working with a **YubiKey 4** or **Yubikey Neo** --
 
 > The Yubikey also implements the HMAC-based One-time Password Algorithm (HOTP) and the Time-based One-time Password Algorithm (TOTP), and identifies itself as a keyboard that delivers the one-time password over the USB HID protocol.
 
-These feature will be critical in mitigating risks defined in out threat model, such as over the shoulder skimming, and create very robust authentication strategy.
+These feature will be critical in mitigating risks defined in out threat model, such as over the shoulder skimming, and create a very robust authentication strategy.
 
 
 ### Drivers & Apps ###
@@ -151,6 +151,8 @@ Then install the drivers and GUI applications via `❯ brew cask install <packag
 - yubico-yubikey-manager
 - yubico-yubikey-piv-manager
 - yubico-yubikey-personalization-gui
+
+?> **Note:** you may need to run `❯ brew tap caskroom/drivers` 
 
 ---
 
@@ -173,7 +175,7 @@ Select the "Static Password" config pane, and open "Advanced" mode.
 
 * [ ] Ensure **`Slot 1`** is selected. 
 * [ ] **`Enable protection`** for the key, **do not** use the card serial number. Store the access code in your keychain.
-* [ ] Set the password length to **`16 chars`**. We dont use 32 chars to avoid creating a public identity segment.
+* [ ] Set the password length to **`16 chars`**. We don't use 32 chars to avoid creating a public identity segment.
 * [ ] **Check** "Upper and lower case" and "Alphanumeric".
 * [ ] Click to generate a **"Private Identity"**. Save a copy in your keychain.
 * [ ] Click to generate a **"Secret Key"**. Save a copy in your keychain.
@@ -224,7 +226,7 @@ Open the PIV manager tool, it should detect a new yubikey and prompt for setup.
 
 > The default PIN code is **`123456`** and **`12345678`** for the Admin PIN (aka PUK). The Reset Code (Management Key) can be up to 127 ASCII characters long.
 
-Set your PIV codes & key, _Saving a copies to your keychain_
+Set your PIV codes & key, _Saving copies to your keychain_
 
 * [ ] PIN
 * [ ] PUK
