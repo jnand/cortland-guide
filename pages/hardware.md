@@ -115,8 +115,11 @@ Set hot-corner:
 
 Go to, **System Preferences**, **Security & Privacy**, **General**, and set the option to "Require password 'immediately' after sleep or screen saver begins"
 
-![screensaver-pass](images/screensaver-pass.png)
+`❯ sudo defaults write com.apple.screensaver askForPassword -int 1`  
+`❯ sudo defaults write com.apple.screensaver askForPasswordDelay -int 0`
 
+![screensaver-pass](images/screensaver-pass.png)
+  
 ---
 
 YubiKey
