@@ -286,7 +286,7 @@ When using your macbook on untrusted networks or using peer-to-peer protocols --
 
 For anonymity, using a hosted VPN service should provide sufficient protection against IP tracking and traffic monitoring.
 
-[Private Internet Access](https://www.privateinternetaccess.com/) is often [rated highly](https://www.tomsguide.com/us/best-vpn,review-4292.html) for its feature set and price.
+[Private Internet Access](http://www.privateinternetaccess.com/pages/buy-vpn/cortland) is often [rated highly](https://www.tomsguide.com/us/best-vpn,review-4292.html) for its feature set and price.
 
 - Windows, Mac, Android, iOS, Linux, Chrome extension
 - 5 Devices
