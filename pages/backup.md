@@ -151,7 +151,7 @@ Now that everything is consolidated in `~/Secrets`, lets create an offline backu
 Using the veracrypt wizard create a small volume, ~100MB. You can use a hidden volume strategy for extra security, but note the [additional handling](https://archive.codeplex.com/?p=veracrypt) needed to prevent corruption.
 
 <div class="center" style="width: 600px">
-![VerCrypt wizard](images/veracrypt-wizard.png)
+![VerCrypt wizard](crypto/images/veracrypt-wizard.png)
 </div>
 
 
