@@ -8,9 +8,12 @@ Now that we have our GPG keys, we can move them onto the yubikey, effectively cr
 Loading GPG keys
 ------------------
 
-?> If you need to update a PIN code via the gpg card manager follow the example in the infobox below. **Note:** the Yubikey PIV tool is the preferred method.
+?> If you need to update a PIN code via the gpg card manager follow the example in the infobox below. **Note:** the Yubikey PIV tool is the preferred method. The default PIN is `123456` with Admin PIN `12345678`.
+
 
 ```info
+❯ gpg --card-edit
+
 gpg/card> passwd
 gpg: OpenPGP card no. D2760001240102010006069405960000 detected
 
@@ -287,7 +290,7 @@ Primary key fingerprint: E2DC D9A8 62D8 9D4C 1D91  5469 AA78 C02F E62B F171
 
 ### Troubleshooting
 
-* [Resetting OpenPGP PIN retries](https://www.yubico.com/support/knowledge-base/categories/articles/reset-applet-yubikey/)
+* [Resetting OpenPGP PIN retries](https://support.yubico.com/support/solutions/articles/15000006421-resetting-the-openpgp-applet-on-the-yubikey)
 
 
 ---
