@@ -251,6 +251,12 @@ SHA256
 
 | Version          | Build   | InstallESD SHA1                          | BaseSystem SHA1                          | InstallESD SHA256                        |
 |:---------------- |:------- |:---------------------------------------- |:---------------------------------------- |:---------------------------------------- |
+| 10.14db8         | 18A371a | 2d2898d0419fc7ae741e2cec99bf330f8441fc5a | 6ceea31509ff58d823240f87dca97e95430bc94a |                                          |
+| 10.14db7         | 18A365a | 63b1633ec24b0757a2209488e4135bde827047af | ce91f98457d1a078d5bbac65b9e124f76c1d52ea |                                          |
+| 10.14db6         | 18A353d | 1b9bfca2e32d7e1073c85cdbf5f719f2fde32a29 | 6e809c84d1bc06023da01856a0cd465b2dc66663 |                                          |
+| 10.14db5         | 18A347e | c701febc21cb34b7859c0987a8101509325d3498 | c22943c59acd7a32ce24a4bd97c368d3f0012028 |                                          |
+| 10.14db4         | 18A336e | 0bbe8e3312522c592a4ea67446d267f30935fab1 | f2dffd59a9213f2eb65d8fba5cefc817a28985ba |                                          |
+| 10.13.6          | 17G65   | 69159caf25666ea1c5d466e158e075d947f6a9ee | 6b7522d7f78b93441ecd7dee73430af9b07b3744 |                                          |
 | 10.13.5          | 17F77   | 216b38acfb234b4e29c2dba41fd76814550b59e2 | a97aeffdbeda4d68e1053f69b55d9d56df4259d6 | c4ff5048bafbf7f386cd6cb3b09b58112df607a526874c726d9b0c5ba2e61a4f |
 | 10.13.4          | 17E199  | 2c72b22a45ea8f5a80bee91db8aba96dae8310ea | 06fb280713ada5595a45eb221af0091b3c24f314 | fd33bb6f8a4132c2ba50808c0e1f92eb05b6c300d38e58287d5d7dec01a4cd65 |
 | 10.13.3          | 17D47   | 726c7516fdbe33ae3f2384ba1ce7efcda4335776 | d64fd8e6ca5287b80fd785a3a1a151da92b8369d | 438fc19055e56ac90fb485796d3aacc4059d241d79bc5c303220c4c2468a1f9d |
